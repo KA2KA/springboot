@@ -1,6 +1,6 @@
 package com.kaka.user.repository;
 
-import com.kaka.user.entity.Users;
+import com.kaka.user.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,38 +14,29 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class UserRepositoryTest {
 
+
     @Autowired
     private UserRepository userRepository;
 
     @Test
     public void test() throws Exception {
 // 创建10条记录
-        userRepository.save(new Users("AAA", "10"));
-        userRepository.save(new Users("BBB", "20"));
-        userRepository.save(new Users("CCC", 30 + ""));
-        userRepository.save(new Users("DDD", 40 + ""));
-        userRepository.save(new Users("EEE", 50 + ""));
-        userRepository.save(new Users("FFF", 60 + ""));
-        userRepository.save(new Users("GGG", 70 + ""));
-        userRepository.save(new Users("HHH", 80 + ""));
-        userRepository.save(new Users("III", 90 + ""));
-        userRepository.save(new Users("JJJ", 100 + ""));
-    }
-
-
-    @Test
-    public void findByName() throws Exception {
-
+        userRepository.save(new User("AAA", "10"));
+        userRepository.save(new User("BBB", "20"));
+        userRepository.save(new User("CCC", 30 + ""));
+        userRepository.save(new User("DDD", 40 + ""));
+        userRepository.save(new User("EEE", 50 + ""));
+        userRepository.save(new User("FFF", 60 + ""));
+        userRepository.save(new User("GGG", 70 + ""));
+        userRepository.save(new User("HHH", 80 + ""));
+        userRepository.save(new User("III", 90 + ""));
+        userRepository.save(new User("JJJ", 100 + ""));
     }
 
     @Test
-    public void findByNameAndAge() throws Exception {
-
-    }
-
-    @Test
-    public void findUser() throws Exception {
-
+    public void findByNameAndPwd() throws Exception {
+        User user = userRepository.findByNameAndPwd("AAA", "10");
+        System.out.println(user.getName());
     }
 
 }

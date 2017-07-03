@@ -16,21 +16,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void create(String name, Integer age) {
-        jdbcTemplate.update("insert into USERS(ID,USERNAME, password) values(2,?, ?)", name, age);
+        jdbcTemplate.update("insert into USER(ID,USERNAME, password) values(2,?, ?)", name, age);
     }
 
     @Override
     public void deleteByName(String name) {
-        jdbcTemplate.update("delete from USERS where USERNAME = ?", name);
+        jdbcTemplate.update("delete from USER where USERNAME = ?", name);
     }
 
     @Override
     public Integer getAllUsers() {
-        return jdbcTemplate.queryForObject("select count(1) from USERS", Integer.class);
+        return jdbcTemplate.queryForObject("select count(1) from USER", Integer.class);
     }
 
     @Override
     public void deleteAllUsers() {
-        jdbcTemplate.update("delete from USERS");
+        jdbcTemplate.update("delete from USER");
     }
 }

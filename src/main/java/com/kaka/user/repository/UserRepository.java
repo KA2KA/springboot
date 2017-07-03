@@ -1,19 +1,17 @@
 package com.kaka.user.repository;
 
 
-import com.kaka.user.entity.Users;
+import com.kaka.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import javax.persistence.Table;
 
 /**
  * Created by Hem on 2017/6/30.
  */
-public interface UserRepository extends JpaRepository<Users, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    Users findByName(String name);
+        User findByNameAndPwd(String name,String pwd);
 
-    Users findByNameAndAge(String name, Integer age);
-
-//    @Query("from Users u where u.username=:username")
-//    Users findUser(@Param("name") String name);
 
 }

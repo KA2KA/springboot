@@ -21,7 +21,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("cn.com.kaka.springboot"))
+                .apis(RequestHandlerSelectors.basePackage("com.kaka.web"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -31,7 +31,7 @@ public class Swagger2 {
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")
                 .description("更多Spring Boot相关文章请关注：http://blog.didispace.com/")
                 .termsOfServiceUrl("http://blog.didispace.com/")
-                .contact("程序猿DD")
+                .contact("切糕")
                 .version("1.0")
                 .build();
     }
