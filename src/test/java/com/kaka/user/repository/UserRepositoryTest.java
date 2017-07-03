@@ -35,8 +35,8 @@ public class UserRepositoryTest {
 
     @Test
     public void findByNameAndPwd() throws Exception {
-        User user = userRepository.findByNameAndPwd("AAA", "10");
-        System.out.println(user.getName());
+        User user = userRepository.findByUsernameAndPassword("AAA", "10");
+        System.out.println(user.getPassword());
     }
 
 }

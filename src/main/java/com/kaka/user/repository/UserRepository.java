@@ -11,7 +11,7 @@ import javax.persistence.Table;
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 
-        User findByNameAndPwd(String name,String pwd);
+        User findByUsernameAndPassword(String username,String password);
 
 
 }
