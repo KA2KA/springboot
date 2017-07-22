@@ -10,8 +10,6 @@ import javax.persistence.*;
 public class UserRoleEntity {
     private Integer id;
     private Integer vision;
-    private UserEntity userByUserid;
-    private RoleEntity roleByRoleid;
 
     @Id
     @Column(name = "ID")
@@ -53,24 +51,4 @@ public class UserRoleEntity {
         result = 31 * result + (vision != null ? vision.hashCode() : 0);
         return result;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "USERID", referencedColumnName = "ID", nullable = false)
-    public UserEntity getUserByUserid() {
-        return userByUserid;
-    }
-
-    public void setUserByUserid(UserEntity userTableByUserid) {
-        this.userByUserid = userTableByUserid;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "ROLEID", referencedColumnName = "ID", nullable = false)
-    public RoleEntity getRoleByRoleid() {
-        return roleByRoleid;
-    }
-
-    public void setRoleByRoleid(RoleEntity roleTableByRoleid) {
-        this.roleByRoleid = roleTableByRoleid;
-    }
-}
+   }

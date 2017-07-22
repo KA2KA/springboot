@@ -14,8 +14,6 @@ public class RoleEntity {
     private String description;
     private Integer state;
     private Integer vision;
-    private Collection<AutorityEntity> autorityTablesById;
-    private Collection<UserRoleEntity> userroleTablesById;
 
     @Id
     @Column(name = "ID")
@@ -93,21 +91,5 @@ public class RoleEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "roleTableByRoleid")
-    public Collection<AutorityEntity> getAutorityTablesById() {
-        return autorityTablesById;
-    }
 
-    public void setAutorityTablesById(Collection<AutorityEntity> autorityTablesById) {
-        this.autorityTablesById = autorityTablesById;
-    }
-
-    @OneToMany(mappedBy = "roleByRoleid")
-    public Collection<UserRoleEntity> getUserroleTablesById() {
-        return userroleTablesById;
-    }
-
-    public void setUserroleTablesById(Collection<UserRoleEntity> userroleTablesById) {
-        this.userroleTablesById = userroleTablesById;
-    }
 }
