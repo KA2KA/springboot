@@ -1,4 +1,4 @@
-package com.kaka.utils;
+package com.kaka.vo;
 
 import java.util.List;
 

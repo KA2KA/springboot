@@ -16,6 +16,8 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserMapperTest {
+
+
     @Autowired
     private UserMapper userMapper;
     @Test
@@ -26,6 +28,13 @@ public class UserMapperTest {
         userEntity.setPassword("kaka");
         userEntity.setNickname("KAKA");
         int i = userMapper.insertUser(userEntity);
+
+    }
+
+    @Test
+    public void findUserById() throws Exception {
+        UserEntity user = userMapper.findUserById(7L);
+        System.out.println(user.getNickname());
 
     }
 
