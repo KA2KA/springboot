@@ -11,6 +11,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
+ * api文档配置类
+ * <p>
  * Created by Hem on 2017/6/30.
  */
 @Configuration
@@ -18,21 +20,17 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class Swagger2 {
     @Bean
     public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.kaka.web"))
-                .paths(PathSelectors.any())
-                .build();
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
+                .apis(RequestHandlerSelectors.basePackage("com.kaka.web")).paths(PathSelectors.any()).build();
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("Spring Boot中使用Swagger2构建RESTful APIs")
-                .description("更多Spring Boot相关文章请关注：http://blog.didispace.com/")
-                .termsOfServiceUrl("http://blog.didispace.com/")
-                .contact("切糕")
-                .version("1.0")
-                .build();
+        ApiInfoBuilder docApi = new ApiInfoBuilder();
+        docApi.title("Spring Boot中使用Swagger2构建RESTful APIs");
+        docApi.description("更多Spring Boot相关文章请关注：http://blog.didispace.com/");
+        docApi.termsOfServiceUrl("http://blog.didispace.com/");
+        docApi.contact("切糕");
+        docApi.version("1.0");
+        return docApi.build();
     }
 }
