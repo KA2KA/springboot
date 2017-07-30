@@ -22,7 +22,7 @@ public class MenuEntity {
     private Integer isleaf;
     private String iconcls;
     private Integer vision;
-    private Collection<AutorityEntity> autorityTablesById;
+    private Collection<Permission> autorityTablesById;
 
     @Id
     @Column(name = "ID")
@@ -161,11 +161,11 @@ public class MenuEntity {
     }
 
     @OneToMany(mappedBy = "menuTableByMenuid")
-    public Collection<AutorityEntity> getAutorityTablesById() {
+    public Collection<Permission> getAutorityTablesById() {
         return autorityTablesById;
     }
 
-    public void setAutorityTablesById(Collection<AutorityEntity> autorityTablesById) {
+    public void setAutorityTablesById(Collection<Permission> autorityTablesById) {
         this.autorityTablesById = autorityTablesById;
     }
 }

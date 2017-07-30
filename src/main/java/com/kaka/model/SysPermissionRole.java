@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "autority_table", schema = "basissql", catalog = "")
-public class AutorityEntity {
+public class Permission {
     private String id;
     private Integer vision;
     private MenuEntity menuTableByMenuid;
@@ -39,7 +39,7 @@ public class AutorityEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AutorityEntity that = (AutorityEntity) o;
+        Permission that = (Permission) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
 
