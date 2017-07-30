@@ -1,14 +1,13 @@
 package com.kaka.mapper;
 
-import com.kaka.model.UserEntity;
+import com.kaka.dao.UserDao;
+import com.kaka.model.SysUser;
 import com.kaka.utils.IdWorker;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by QIEGAO on 2017/7/22.
@@ -17,14 +16,14 @@ import static org.junit.Assert.*;
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserMapperTest {
     @Autowired
-    private UserMapper userMapper;
+    private UserDao userMapper;
     @Test
     public void insertUser() throws Exception {
-        UserEntity userEntity = new UserEntity();
+        SysUser userEntity = new SysUser();
         userEntity.setId(new IdWorker().getWorkerId());
-        userEntity.setUsername("kaka");
-        userEntity.setPassword("kaka");
-        userEntity.setNickname("KAKA");
+        userEntity.setUserName("kaka");
+        userEntity.setPassWord("kaka");
+        userEntity.setNickName("KAKA");
         int i = userMapper.insertUser(userEntity);
 
     }

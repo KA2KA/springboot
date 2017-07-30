@@ -7,11 +7,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "autority_table", schema = "basissql", catalog = "")
-public class Permission {
+public class SysPermissionRole {
     private String id;
     private Integer vision;
-    private MenuEntity menuTableByMenuid;
-    private RoleEntity roleTableByRoleid;
+    private SysPermission menuTableByMenuid;
+    private SysRole roleTableByRoleid;
 
     @Id
     @Column(name = "ID")
@@ -39,7 +39,7 @@ public class Permission {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Permission that = (Permission) o;
+        SysPermissionRole that = (SysPermissionRole) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
 
@@ -57,21 +57,21 @@ public class Permission {
 
     @ManyToOne
     @JoinColumn(name = "MENUID", referencedColumnName = "ID", nullable = false)
-    public MenuEntity getMenuTableByMenuid() {
+    public SysPermission getMenuTableByMenuid() {
         return menuTableByMenuid;
     }
 
-    public void setMenuTableByMenuid(MenuEntity menuTableByMenuid) {
+    public void setMenuTableByMenuid(SysPermission menuTableByMenuid) {
         this.menuTableByMenuid = menuTableByMenuid;
     }
 
     @ManyToOne
     @JoinColumn(name = "ROLEID", referencedColumnName = "ID", nullable = false)
-    public RoleEntity getRoleTableByRoleid() {
+    public SysRole getRoleTableByRoleid() {
         return roleTableByRoleid;
     }
 
-    public void setRoleTableByRoleid(RoleEntity roleTableByRoleid) {
+    public void setRoleTableByRoleid(SysRole roleTableByRoleid) {
         this.roleTableByRoleid = roleTableByRoleid;
     }
 }

@@ -1,40 +1,37 @@
 package com.kaka.model;
 
-import javax.persistence.*;
-import java.util.Collection;
-
 /**
  * Created by wuwan on 2016/9/30.
  */
-public class UserEntity extends BaseEntity {
-    private String username;
-    private String password;
-    private String nickname;
-    private String alias;
-    private Integer state;
+public class SysUser extends BaseEntity {
+    private String userName; //用户名称
+    private String passWord; //密码
+    private String nickName; //昵称
+    private String alias; //头像
+    private Integer state; //状态
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassWord() {
+        return passWord;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getAlias() {

@@ -1,4 +1,4 @@
-package com.kaka.utils;
+package com.kaka.common;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
  * Created by QIEGAO on 2017/7/20.
  */
 @Configuration
-public class DruidDataSourceConfiguration {
+public class DruidConfiguration {
 
     @Value("${spring.datasource.driver-class-name}")
     private String driver;
