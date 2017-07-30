@@ -15,6 +15,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserMapperTest {
+
+
     @Autowired
     private UserDao userMapper;
     @Test
@@ -25,6 +27,13 @@ public class UserMapperTest {
         userEntity.setPassWord("kaka");
         userEntity.setNickName("KAKA");
         int i = userMapper.insertUser(userEntity);
+
+    }
+
+    @Test
+    public void findUserById() throws Exception {
+        UserEntity user = userMapper.findUserById(7L);
+        System.out.println(user.getNickname());
 
     }
 

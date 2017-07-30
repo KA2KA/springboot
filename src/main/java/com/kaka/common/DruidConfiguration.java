@@ -44,7 +44,7 @@ public class DruidConfiguration {
         druidDataSource.setUsername(username);
         druidDataSource.setPassword(password);
         try {
-            druidDataSource.setFilters("stat, wall,mergeStat");
+            druidDataSource.setFilters("stat,wall,mergeStat");
         } catch (SQLException e) {
             e.printStackTrace();
         }

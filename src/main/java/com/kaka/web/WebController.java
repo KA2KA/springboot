@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WebController {
 
-    @RequestMapping("/index1")
+    @RequestMapping("/index")
     public String index(ModelMap map) {
         map.addAttribute("host", "http://blog.didispace.com");
         return "index";
     }
+
+
 
 }
