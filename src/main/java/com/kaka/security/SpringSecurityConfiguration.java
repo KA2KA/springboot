@@ -1,7 +1,6 @@
 package com.kaka.security;
 
 import com.kaka.common.CustomUserService;
-import com.kaka.common.MyFilterSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

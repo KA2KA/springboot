@@ -1,37 +1,40 @@
 package com.kaka.model;
 
 /**
+ * 系统用户表
  * Created by wuwan on 2016/9/30.
  */
+
 public class SysUser extends BaseEntity {
-    private String userName; //用户名称
-    private String passWord; //密码
-    private String nickName; //昵称
+    private String username; //用户名称
+    private String password; //密码
+    private String nickname; //昵称
+    private Long phone;  //手机
     private String alias; //头像
     private Integer state; //状态
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getAlias() {
@@ -50,4 +53,11 @@ public class SysUser extends BaseEntity {
         this.state = state;
     }
 
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
 }

@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.33 (64 bit)
 MySQL - 5.7.18-0ubuntu0.17.04.1 : Database - KAKA
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -16,13 +17,22 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`KAKA` /*!40100 DEFAULT CHARACTER SET ut
 
 /*Table structure for table `sus_user` */
 
-CREATE TABLE `sus_user` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `USERNAME` varchar(20) DEFAULT NULL COMMENT '用户名',
-  `PASSWORD` varchar(20) DEFAULT NULL COMMENT '用户密码',
-  `NICKNAME` varchar(20) DEFAULT NULL COMMENT '昵称',
+CREATE TABLE `sys_user` (
+  `id` INT(20) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+  `username` VARCHAR(20) DEFAULT NULL COMMENT '用户名',
+  `password` VARCHAR(100) DEFAULT NULL COMMENT '用户密码',
+  `nickname` VARCHAR(20) DEFAULT NULL COMMENT '昵称',
+  `phone` INT(11) DEFAULT  NULL  COMMENT '手机号',
+  `alias` VARCHAR(100) DEFAULT  NULL  COMMENT '用户头像',
+  `state` INT(1) DEFAULT  NULL  COMMENT '用户状态',
+  `create_by` VARCHAR(20)   DEFAULT NULL COMMENT '创建数据用户',
+  `update_by` VARCHAR(20)   DEFAULT NULL COMMENT '更新数据用户',
+  `create_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  COMMENT '创建数据时间',
+  `update_date` TIMESTAMP DEFAULT CURRET_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新数据时间',
+  `del_flag` INT(1)  NOT NULL DEFAULT  0 COMMENT '是否删除：0正常 1不正常',
+  `vision` INT(5)  NOT NULL DEFAULT  0 COMMENT '数据版本',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=INNODB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 /*Data for the table `sus_user` */
 

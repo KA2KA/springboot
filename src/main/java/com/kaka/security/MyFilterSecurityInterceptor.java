@@ -1,4 +1,4 @@
-package com.kaka.common;
+package com.kaka.security;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

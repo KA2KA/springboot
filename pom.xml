@@ -36,9 +36,10 @@
             <id>dev_home</id>
             <properties>
                 <db.driver>com.mysql.jdbc.Driver</db.driver>
-                <db.url>jdbc:mysql://192.168.1.21:3306/KAKA</db.url>
+                <db.url>jdbc:mysql://192.168.1.11:3306/KAKA</db.url>
                 <db.username>root</db.username>
                 <db.password>root</db.password>
+                <db.version>5.7</db.version>
             </properties>
         </profile>
     </profiles>

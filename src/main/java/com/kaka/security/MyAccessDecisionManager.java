@@ -1,4 +1,4 @@
-package com.kaka.common;
+package com.kaka.security;
 
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;

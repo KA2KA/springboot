@@ -1,7 +1,7 @@
-package com.kaka.common;
+package com.kaka.security;
 
-import com.kaka.dao.PermissionDao;
-import com.kaka.model.SysPermission;
+import com.kaka.dao.SysPermissionDao;
+import com.kaka.model.SysMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
@@ -21,7 +21,7 @@ public class MyInvocationSecurityMetadataSourceService implements
         FilterInvocationSecurityMetadataSource {
 
     @Autowired
-    private PermissionDao permissionDao;
+    private SysPermissionDao permissionDao;
 
     private HashMap<String, Collection<ConfigAttribute>> map = null;
 
@@ -32,10 +32,10 @@ public class MyInvocationSecurityMetadataSourceService implements
         map = new HashMap<>();
         Collection<ConfigAttribute> array;
         ConfigAttribute cfg;
-        List<SysPermission> permissions = permissionDao.findAll();
-        for (SysPermission permission : permissions) {
+        List<SysMenu> permissions = permissionDao.findAll();
+        for (SysMenu permission : permissions) {
             array = new ArrayList<>();
-            cfg = new SecurityConfig(permission.getName());
+            cfg = new SecurityConfig(permission.getMenuName());
             //此处只添加了用户的名字，其实还可以添加更多权限的信息，例如请求方法到ConfigAttribute的集合中去。此处添加的信息将会作为MyAccessDecisionManager类的decide的第三个参数。
             array.add(cfg);
             //用权限的getUrl() 作为map的key，用ConfigAttribute的集合作为 value，

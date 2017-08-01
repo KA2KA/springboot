@@ -1,8 +1,8 @@
 package com.kaka.common;
 
-import com.kaka.dao.PermissionDao;
-import com.kaka.dao.UserDao;
-import com.kaka.model.SysPermission;
+import com.kaka.dao.SysPermissionDao;
+import com.kaka.dao.SysUserDao;
+import com.kaka.model.SysMenu;
 import com.kaka.model.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,24 +23,24 @@ import java.util.List;
 public class CustomUserService implements UserDetailsService {
 
     @Autowired
-    UserDao userDao;
+    SysUserDao userDao;
     @Autowired
-    PermissionDao permissionDao;
+    SysPermissionDao permissionDao;
 
     public UserDetails loadUserByUsername(String username) {
         SysUser user = userDao.findByUserName(username);
         if (user != null) {
-            List<SysPermission> permissions = permissionDao.findByAdminUserId(user.getId());
+            List<SysMenu> permissions = permissionDao.findAll();
             List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            for (SysPermission permission : permissions) {
-                if (permission != null && permission.getName() != null) {
+            for (SysMenu sysMenu : permissions) {
+                if (sysMenu != null && sysMenu.getMenuName() != null) {
 
-                    GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(permission.getName());
+                    GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(sysMenu.getMenuName());
                     //1：此处将权限信息添加到 GrantedAuthority 对象中，在后面进行全权限验证时会使用GrantedAuthority 对象。
                     grantedAuthorities.add(grantedAuthority);
                 }
             }
-            return new User(user.getUserName(), user.getPassWord(), grantedAuthorities);
+            return new User(user.getUsername(), user.getPassword(), grantedAuthorities);
         } else {
             throw new UsernameNotFoundException("admin: " + username + " do not exist!");
         }
