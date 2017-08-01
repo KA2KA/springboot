@@ -12,11 +12,19 @@ import org.apache.ibatis.annotations.Update;
 
 public interface SysUserDao {
 
-    @Insert("insert into `sys_user` (id,username,password,nickname,phone,alias,state) values (#{id},#{username},#{password},#{nickname},#{phone},#{alias},#{state})")
-    int insertUser(SysUser sysUser);
+    /**
+     * 插入系统用户信息
+     *
+     * @param sysUser
+     * @return
+     */
+    @Insert("insert into `sys_user`(id,username,password,nickname,phone,alias,state,create_by,update_by,del_flag,version) values" +
+            "(#{id},#{username},#{password},#{nickname},#{phone},#{alias},#{state},#{createBy},#{updateBy},#{delFlag},#{version})")
+    int insertSysUser(SysUser sysUser);
+
 
     @Update("update `sys_user` set  username =#{username} where id =#{id}")
-    int updateUser(SysUser sysUser);
+    int updateSysUser(SysUser sysUser);
 
 
     /**

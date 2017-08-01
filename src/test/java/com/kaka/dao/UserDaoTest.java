@@ -19,7 +19,7 @@ public class UserDaoTest {
         SysUser sysUser = new SysUser();
         sysUser.setId(9L);
         sysUser.setUsername("kaka1");
-        int i = userDao.updateUser(sysUser);
+        int i = userDao.updateSysUser(sysUser);
 
 
     }
@@ -36,7 +36,9 @@ public class UserDaoTest {
         sysUser.setUsername("kaka");
         sysUser.setPassword("kaka");
         sysUser.setNickname("KAKA");
-        userDao.insertUser(sysUser);
+        sysUser.setCreateBy("张三");
+        sysUser.setVersion(0);
+        userDao.insertSysUser(sysUser);
     }
 
     @Test

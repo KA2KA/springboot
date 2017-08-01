@@ -14,7 +14,7 @@ public class BaseEntity {
     protected String updateBy;//更新数据操作用户
     protected Timestamp updateDate;//更新数据时间
     protected boolean delFlag;//是否删除：0正常 1已删除
-    protected Integer vision;//版本号:用来控制乐观锁
+    protected Integer version;//版本号:用来控制乐观锁
 
     public Long getId() {
         return id;
@@ -64,11 +64,10 @@ public class BaseEntity {
         this.delFlag = delFlag;
     }
 
-    public Integer getVision() {
-        return vision;
+    public Integer getVersion() {
+        return version;
     }
-
-    public void setVision(Integer vision) {
-        this.vision = vision;
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }

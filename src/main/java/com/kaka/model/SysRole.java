@@ -5,16 +5,17 @@ package com.kaka.model;
  * Created by wuwan on 2016/9/30.
  */
 public class SysRole extends BaseEntity {
-    private String roleName;
+    private String rolename;
     private String description;
-    private Integer state;
+    private Integer state;//
+    private Long parentId; //角色父id
 
-    public String getRoleName() {
-        return roleName;
+    public String getRolename() {
+        return rolename;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
     }
 
     public String getDescription() {
@@ -33,5 +34,11 @@ public class SysRole extends BaseEntity {
         this.state = state;
     }
 
+    public Long getParentId() {
+        return parentId;
+    }
 
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 }

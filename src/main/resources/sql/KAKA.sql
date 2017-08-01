@@ -28,9 +28,9 @@ CREATE TABLE `sys_user` (
   `create_by` VARCHAR(20)   DEFAULT NULL COMMENT '创建数据用户',
   `update_by` VARCHAR(20)   DEFAULT NULL COMMENT '更新数据用户',
   `create_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  COMMENT '创建数据时间',
-  `update_date` TIMESTAMP DEFAULT CURRET_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新数据时间',
+  `update_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新数据时间',
   `del_flag` INT(1)  NOT NULL DEFAULT  0 COMMENT '是否删除：0正常 1不正常',
-  `vision` INT(5)  NOT NULL DEFAULT  0 COMMENT '数据版本',
+  `version` INT(5)  NOT NULL DEFAULT  0 COMMENT '数据版本',
   PRIMARY KEY (`ID`)
 ) ENGINE=INNODB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
@@ -38,9 +38,47 @@ CREATE TABLE `sys_user` (
 
 LOCK TABLES `sus_user` WRITE;
 
-insert  into `sus_user`(`ID`,`USERNAME`,`PASSWORD`,`NICKNAME`) values (24,'kaka','kaka','KAKA');
+UNLOCK TABLES;
+/*Table structure for table `sys_role` */
+
+CREATE TABLE `sys_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
+  `rolename` varchar(20) DEFAULT NULL COMMENT '角色名',
+  `description` varchar(50) DEFAULT NULL COMMENT '描述',
+  `parent_id` INT(11)  DEFAULT NULL  COMMENT '角色父id',
+  `create_by` VARCHAR(20)   DEFAULT NULL COMMENT '创建数据用户',
+  `update_by` VARCHAR(20)   DEFAULT NULL COMMENT '更新数据用户',
+  `create_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  COMMENT '创建数据时间',
+  `update_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新数据时间',
+  `del_flag` INT(1)  NOT NULL DEFAULT  0 COMMENT '是否删除：0正常 1不正常',
+  `version` INT(5)  NOT NULL DEFAULT  0 COMMENT '数据版本',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表';
+
+/*Data for the table `sys_role` */
+
+LOCK TABLES `sys_role` WRITE;
 
 UNLOCK TABLES;
+
+/*Table structure for table `sys_userrole` */
+
+CREATE TABLE `sys_userrole` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `ROLEID` int(11) NOT NULL COMMENT '角色ID',
+  `USERID` int(11) NOT NULL COMMENT '用户ID',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户角色表：用户表和角色表的中间表';
+
+/*Data for the table `sys_userrole` */
+
+LOCK TABLES `sys_userrole` WRITE;
+
+UNLOCK TABLES;
+
+
+
+
 
 /*Table structure for table `sys_menu` */
 
@@ -74,35 +112,6 @@ LOCK TABLES `sys_permission` WRITE;
 
 UNLOCK TABLES;
 
-/*Table structure for table `sys_role` */
-
-CREATE TABLE `sys_role` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
-  `ROLENAME` varchar(20) DEFAULT NULL COMMENT '角色名',
-  `DESCRIPTION` varchar(50) DEFAULT NULL COMMENT '描述',
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表';
-
-/*Data for the table `sys_role` */
-
-LOCK TABLES `sys_role` WRITE;
-
-UNLOCK TABLES;
-
-/*Table structure for table `sys_userrole` */
-
-CREATE TABLE `sys_userrole` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `ROLEID` int(11) NOT NULL COMMENT '角色ID',
-  `USERID` int(11) NOT NULL COMMENT '用户ID',
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户角色表：用户表和角色表的中间表';
-
-/*Data for the table `sys_userrole` */
-
-LOCK TABLES `sys_userrole` WRITE;
-
-UNLOCK TABLES;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
