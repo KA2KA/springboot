@@ -5,6 +5,7 @@ CREATE TABLE `sys_user` (
   `usertype` TINYINT(2) DEFAULT NULL  COMMENT '用户类型',
   `password` VARCHAR(100) DEFAULT NULL COMMENT '用户密码',
   `nickname` VARCHAR(20) DEFAULT NULL COMMENT '昵称',
+  `sex`  TINYINT(1) DEFAULT NULL  COMMENT '性别',
   `phone` INT(11) DEFAULT  NULL  COMMENT '手机号',
   `email` VARCHAR (100) DEFAULT  NULL  COMMENT '邮箱',
   `alias` VARCHAR(100) DEFAULT  NULL  COMMENT '用户头像',

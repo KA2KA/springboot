@@ -7,8 +7,8 @@ import java.sql.Timestamp;
  * Created by QIEGAO on 2017/7/22.
  */
 public class BaseEntity {
-
     protected Long id;//表id
+    protected String remark; //备注
     protected String createBy; //创建数据操作用户
     protected Timestamp createDate;//创建数据时间
     protected String updateBy;//更新数据操作用户
@@ -67,7 +67,16 @@ public class BaseEntity {
     public Integer getVersion() {
         return version;
     }
+
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

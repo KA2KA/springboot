@@ -10,6 +10,7 @@ public class SysRole extends BaseEntity {
     private Integer state;//
     private Long parentId; //角色父id
 
+
     public String getRolename() {
         return rolename;
     }
