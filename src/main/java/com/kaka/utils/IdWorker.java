@@ -87,9 +87,8 @@ public class IdWorker {
         return System.currentTimeMillis();
     }
 
-    public String getId() {
-        long id = nextId();
-        return id + "";
+    public long getId() {
+        return  nextId();
     }
 
     private synchronized long nextId() {
