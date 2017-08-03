@@ -7,6 +7,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.IdGenerator;
+
+import java.util.UUID;
 
 /**
  * Created by QIEGAO on 2017/8/1.
@@ -17,7 +20,7 @@ public class UserDaoTest {
     @Test
     public void updateUser() throws Exception {
         SysUser sysUser = new SysUser();
-        sysUser.setId(9L);
+        sysUser.setId(new IdWorker().getId());
         sysUser.setUsername("kaka1");
         int i = userDao.updateSysUser(sysUser);
 
@@ -30,9 +33,7 @@ public class UserDaoTest {
     @Test
     public void insertUser() throws Exception {
         SysUser sysUser = new SysUser();
-        long workerId = new IdWorker().getWorkerId();
-        sysUser.setId(workerId);
-        System.out.println("workerId"+workerId);
+        sysUser.setId(new IdWorker().getId());
         sysUser.setUsername("kaka");
         sysUser.setPassword("kaka");
         sysUser.setNickname("KAKA");
