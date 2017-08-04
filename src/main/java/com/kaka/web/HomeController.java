@@ -1,6 +1,6 @@
 package com.kaka.web;
 
-import com.kaka.model.Msg;
+import com.kaka.system.model.Msg;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

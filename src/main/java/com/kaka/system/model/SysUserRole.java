@@ -1,4 +1,4 @@
-package com.kaka.model;
+package com.kaka.system.model;
 
 /**
  * 系统角色用户关联表

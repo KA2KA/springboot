@@ -1,4 +1,4 @@
-package com.kaka.model;
+package com.kaka.system.model;
 
 import java.sql.Timestamp;
 

@@ -1,17 +1,12 @@
-package com.kaka.dao;
+package com.kaka.system.dao;
 
-import com.kaka.model.SysRole;
+import com.kaka.system.model.SysRole;
 import com.kaka.utils.IdWorker;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.persistence.Id;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by QIEGAO on 2017/8/2.

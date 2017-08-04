@@ -1,4 +1,4 @@
-package com.kaka.dao;
+package com.kaka.system.dao;
 
 /**
  * 用户菜单类Dao

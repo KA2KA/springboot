@@ -1,7 +1,6 @@
-package com.kaka.dao;
+package com.kaka.system.dao;
 
-import com.kaka.model.SysMenu;
-import org.apache.ibatis.annotations.Select;
+import com.kaka.system.model.SysMenu;
 
 import java.util.List;
 

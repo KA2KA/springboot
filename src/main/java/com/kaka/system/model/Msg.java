@@ -1,4 +1,4 @@
-package com.kaka.model;
+package com.kaka.system.model;
 
 /**
  * Created by QIEGAO on 2017/7/30.

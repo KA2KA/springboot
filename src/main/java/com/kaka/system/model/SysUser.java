@@ -1,4 +1,4 @@
-package com.kaka.model;
+package com.kaka.system.model;
 
 import java.sql.Timestamp;
 
@@ -11,6 +11,7 @@ public class SysUser extends BaseEntity {
     private String username; //用户名称
     private String password; //密码
     private String nickname; //昵称
+    private Long sex; //性别：0男 1女
     private Long phone;  //手机
     private String alias; //头像
     private Integer state; //状态
@@ -44,6 +45,22 @@ public class SysUser extends BaseEntity {
         this.nickname = nickname;
     }
 
+    public Long getSex() {
+        return sex;
+    }
+
+    public void setSex(Long sex) {
+        this.sex = sex;
+    }
+
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
+
     public String getAlias() {
         return alias;
     }
@@ -58,14 +75,6 @@ public class SysUser extends BaseEntity {
 
     public void setState(Integer state) {
         this.state = state;
-    }
-
-    public Long getPhone() {
-        return phone;
-    }
-
-    public void setPhone(Long phone) {
-        this.phone = phone;
     }
 
     public Long getUsertype() {

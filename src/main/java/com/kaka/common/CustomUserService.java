@@ -1,9 +1,9 @@
 package com.kaka.common;
 
-import com.kaka.dao.SysPermissionDao;
-import com.kaka.dao.SysUserDao;
-import com.kaka.model.SysMenu;
-import com.kaka.model.SysUser;
+import com.kaka.system.dao.SysPermissionDao;
+import com.kaka.system.dao.SysUserDao;
+import com.kaka.system.model.SysMenu;
+import com.kaka.system.model.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

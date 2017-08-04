@@ -1,15 +1,12 @@
-package com.kaka.dao;
+package com.kaka.system.dao;
 
-import com.kaka.model.SysUser;
+import com.kaka.system.model.SysUser;
 import com.kaka.utils.IdWorker;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.IdGenerator;
-
-import java.util.UUID;
 
 /**
  * Created by QIEGAO on 2017/8/1.

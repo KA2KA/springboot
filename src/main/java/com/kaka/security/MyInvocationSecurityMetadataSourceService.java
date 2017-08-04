@@ -1,7 +1,7 @@
 package com.kaka.security;
 
-import com.kaka.dao.SysPermissionDao;
-import com.kaka.model.SysMenu;
+import com.kaka.system.dao.SysPermissionDao;
+import com.kaka.system.model.SysMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
