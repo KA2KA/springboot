@@ -1,6 +1,6 @@
-package com.kaka.system.dao;
+package com.kaka.msystem.dao;
 
-import com.kaka.system.model.SysUser;
+import com.kaka.msystem.model.SysUser;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -10,7 +10,8 @@ import org.apache.ibatis.annotations.Update;
  * Created by QIEGAO on 2017/7/22.
  */
 
-public interface SysUserDao {
+
+public interface SysUserMapper {
 
     /**
      * 插入系统用户信息
@@ -18,8 +19,6 @@ public interface SysUserDao {
      * @param sysUser
      * @return
      */
-    @Insert("insert into `sys_user`(id,username,password,nickname,phone,alias,state,create_by,update_by,del_flag,version) values" +
-            "(#{id},#{username},#{password},#{nickname},#{phone},#{alias},#{state},#{createBy},#{updateBy},#{delFlag},#{version})")
     int insertSysUser(SysUser sysUser);
 
 

@@ -1,4 +1,4 @@
-package com.kaka.system.model;
+package com.kaka.msystem.model;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
@@ -19,10 +19,10 @@ public class SysUser extends BaseEntity {
     private Integer state; //状态
     private Long usertype; //用户类型
     private String email; //邮箱
-    private String login_address; //最近登陆地址
-    private Timestamp login_date;//最近登陆时间
+    private String loginAddress; //最近登陆地址
+    private Timestamp loginDate;//最近登陆时间
     private String ip; //最近登陆ip
-    private Set<SysRole> roles = new HashSet<>();
+    private Set<SysRole> sysRoleSet = new HashSet<>();
 
     public String getUsername() {
         return username;
@@ -96,20 +96,20 @@ public class SysUser extends BaseEntity {
         this.email = email;
     }
 
-    public String getLogin_address() {
-        return login_address;
+    public String getLoginAddress() {
+        return loginAddress;
     }
 
-    public void setLogin_address(String login_address) {
-        this.login_address = login_address;
+    public void setLoginAddress(String loginAddress) {
+        this.loginAddress = loginAddress;
     }
 
-    public Timestamp getLogin_date() {
-        return login_date;
+    public Timestamp getLoginDate() {
+        return loginDate;
     }
 
-    public void setLogin_date(Timestamp login_date) {
-        this.login_date = login_date;
+    public void setLoginDate(Timestamp loginDate) {
+        this.loginDate = loginDate;
     }
 
     public String getIp() {
@@ -120,11 +120,11 @@ public class SysUser extends BaseEntity {
         this.ip = ip;
     }
 
-    public Set<SysRole> getRoles() {
-        return roles;
+    public Set<SysRole> getSysRoleSet() {
+        return sysRoleSet;
     }
 
-    public void setRoles(Set<SysRole> roles) {
-        this.roles = roles;
+    public void setSysRoleSet(Set<SysRole> sysRoleSet) {
+        this.sysRoleSet = sysRoleSet;
     }
 }

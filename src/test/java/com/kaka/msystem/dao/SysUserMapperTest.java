@@ -1,6 +1,7 @@
-package com.kaka.system.dao;
+package com.kaka.msystem.dao;
 
-import com.kaka.system.model.SysUser;
+import com.kaka.msystem.model.SysUser;
+import com.kaka.utils.IDGenerator;
 import com.kaka.utils.IdWorker;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,33 +9,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.Id;
+
 /**
  * Created by QIEGAO on 2017/8/1.
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class UserDaoTest {
+public class SysUserMapperTest {
     @Test
     public void updateUser() throws Exception {
         SysUser sysUser = new SysUser();
         sysUser.setId(new IdWorker().getId());
         sysUser.setUsername("kaka1");
         int i = userDao.updateSysUser(sysUser);
-
-
     }
 
     @Autowired
-    private SysUserDao userDao;
+    private SysUserMapper userDao;
 
     @Test
     public void insertUser() throws Exception {
         SysUser sysUser = new SysUser();
-        sysUser.setId(new IdWorker().getId());
+        sysUser.setId(IDGenerator.getId());
         sysUser.setUsername("kaka");
         sysUser.setPassword("kaka");
         sysUser.setNickname("KAKA");
         sysUser.setCreateBy("张三");
+
         sysUser.setVersion(0);
         userDao.insertSysUser(sysUser);
     }

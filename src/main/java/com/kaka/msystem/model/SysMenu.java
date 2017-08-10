@@ -1,4 +1,7 @@
-package com.kaka.system.model;
+package com.kaka.msystem.model;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 系统菜单表
@@ -13,6 +16,7 @@ public class SysMenu extends BaseEntity {
     private Integer state;
     private Integer isleaf;
     private Integer parentid;
+    private Set<SysRole> sysRoleSet = new HashSet<>();
 
     public String getMenuName() {
         return menuName;
@@ -76,5 +80,13 @@ public class SysMenu extends BaseEntity {
 
     public void setParentid(Integer parentid) {
         this.parentid = parentid;
+    }
+
+    public Set<SysRole> getSysRoleSet() {
+        return sysRoleSet;
+    }
+
+    public void setSysRoleSet(Set<SysRole> sysRoleSet) {
+        this.sysRoleSet = sysRoleSet;
     }
 }

@@ -1,6 +1,5 @@
-package com.kaka.system.model;
+package com.kaka.msystem.model;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,9 +12,8 @@ public class SysRole extends BaseEntity {
     private String description;
     private Integer state;//
     private Long parentId; //角色父id
-    private Set<SysUser> users =new HashSet<>();
-    private Set<SysMenu> menus =new HashSet<>();
-
+    private Set<SysUser> sysUserSet =new HashSet<>();
+    private Set<SysMenu> sysMenuSet =new HashSet<>();
 
 
     public String getRolename() {
@@ -50,19 +48,19 @@ public class SysRole extends BaseEntity {
         this.parentId = parentId;
     }
 
-    public Set<SysUser> getUsers() {
-        return users;
+    public Set<SysUser> getSysUserSet() {
+        return sysUserSet;
     }
 
-    public void setUsers(Set<SysUser> users) {
-        this.users = users;
+    public void setSysUserSet(Set<SysUser> sysUserSet) {
+        this.sysUserSet = sysUserSet;
     }
 
-    public Set<SysMenu> getMenus() {
-        return menus;
+    public Set<SysMenu> getSysMenuSet() {
+        return sysMenuSet;
     }
 
-    public void setMenus(Set<SysMenu> menus) {
-        this.menus = menus;
+    public void setSysMenuSet(Set<SysMenu> sysMenuSet) {
+        this.sysMenuSet = sysMenuSet;
     }
 }

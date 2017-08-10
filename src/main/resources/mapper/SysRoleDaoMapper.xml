@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaka.msystem.dao.SysRoleDaoMapper">
+    <resultMap id="BaseResultMap" type="com.kaka.msystem.model.SysRole">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
+        <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="update_by" property="updateBy" jdbcType="VARCHAR"/>
+        <result column="update_date" property="updateDate" jdbcType="TIMESTAMP"/>
+        <result column="del_flag" property="updateDate" jdbcType="INTEGER"/>
+        <result column="version" property="updateDate" jdbcType="INTEGER"/>
+
+        <result column="rolename" property="rolename" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="TINYINT"/>
+        <result column="parent_id" property="parentId" jdbcType="BIGINT"/>
+        <!--用户表数据-->
+        <collection property="sysUserSet" ofType="com.kaka.msystem.model.SysUser">
+            <id column="id" property="id" jdbcType="BIGINT"/>
+        </collection>
+        <collection property="sysMenuSet" ofType="com.kaka.msystem.model.SysMenu">
+            <id column="id" property="id" jdbcType="BIGINT"/>
+        </collection>
+    </resultMap>
+    <select id="findByUserId" resultMap="BaseResultMap" parameterType="java.lang.Long">
+      SELECT * FROM sys_role role
+      INNER  JOIN sys_permission permission ON role.id  =permission.roleid
+      INNER  JOIN sys_userrole userrole ON role.id  =userrole.roleid
+      WHERE userrole.id=#{id,jdbcType=BIGINT}
+    </select>
+
+</mapper>

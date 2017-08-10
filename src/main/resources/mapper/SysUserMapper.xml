@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaka.msystem.dao.SysUserMapper">
+    <resultMap id="BaseResultMap" type="com.kaka.msystem.model.SysUser">
+
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
+        <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="update_by" property="updateBy" jdbcType="VARCHAR"/>
+        <result column="update_date" property="updateDate" jdbcType="TIMESTAMP"/>
+        <result column="del_flag" property="updateDate" jdbcType="INTEGER"/>
+        <result column="version" property="updateDate" jdbcType="INTEGER"/>
+
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="usertype" property="usertype" jdbcType="TINYINT"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="TINYINT"/>
+        <result column="phone" property="phone" jdbcType="INTEGER"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="alias" property="alias" jdbcType="VARCHAR"/>
+        <result column="login_address" property="loginAddress" jdbcType="VARCHAR"/>
+        <result column="login_date" property="loginDate" jdbcType="TIMESTAMP"/>
+        <result column="ip" property="ip" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="TINYINT"/>
+
+        <collection property="sysRoleSet" ofType="com.kaka.msystem.model.SysRole">
+            <id column="id" property="id" jdbcType="BIGINT"/>
+        </collection>
+
+    </resultMap>
+    <insert id="insertSysUser" parameterType="com.kaka.msystem.model.SysUser">
+      INSERT  INTO  `sys_user` (id,username,password,nickname,phone,alias,login_date,state,create_by,update_by,del_flag,version)
+      VALUES(#{id},#{username},#{password},#{nickname},#{phone},#{alias},#{state},#{loginDate},#{createBy},#{updateBy},#{delFlag},#{version})
+    </insert>
+</mapper>

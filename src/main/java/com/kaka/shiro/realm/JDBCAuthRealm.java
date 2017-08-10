@@ -1,9 +1,9 @@
-package com.kaka.system.shiro.realm;
+package com.kaka.shiro.realm;
 
-import com.kaka.system.model.SysMenu;
-import com.kaka.system.model.SysRole;
-import com.kaka.system.model.SysUser;
-import com.kaka.system.service.SysUserService;
+import com.kaka.msystem.model.SysMenu;
+import com.kaka.msystem.model.SysRole;
+import com.kaka.msystem.model.SysUser;
+import com.kaka.msystem.service.SysUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * JDBC数据库链接校验
  * Created by QIEGAO on 2017/8/10.
  */
 public class JDBCAuthRealm extends AuthorizingRealm {
@@ -28,7 +29,7 @@ public class JDBCAuthRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();
-        SysUser user = sysUserService.findUserByUserName(username);
+        SysUser user = sysUserService.findUserAndRoleByUserName(username);
         return new SimpleAuthenticationInfo(user, user.getPassword(), this.getClass().getName());
     }
 
@@ -37,17 +38,17 @@ public class JDBCAuthRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
         SysUser user = (SysUser) principal.fromRealm(this.getClass().getName()).iterator().next();//获取session中的用户
         List<String> permissions = new ArrayList<>();
-        Set<SysRole> roles = user.getRoles();
-        if (roles != null && !roles.isEmpty())
+        Set<SysRole> roles = user.getSysRoleSet();
+        if (roles != null && !roles.isEmpty()) {
             for (SysRole role : roles) {
-                Set<SysMenu> menus = role.getMenus();
+                Set<SysMenu> menus = role.getSysMenuSet();
                 if (menus != null && !menus.isEmpty()) {
-                    for (SysMenu menu : menus) {
-                        permissions.add(menu.getMenuName());
-                    }
+                    menus.forEach(obj -> permissions.add(obj.getMenuName()));
                 }
             }
+        }
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+
         info.addStringPermissions(permissions);
         return info;
     }
