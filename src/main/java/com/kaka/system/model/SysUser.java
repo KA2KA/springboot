@@ -1,6 +1,8 @@
 package com.kaka.system.model;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 系统用户表
@@ -20,6 +22,7 @@ public class SysUser extends BaseEntity {
     private String login_address; //最近登陆地址
     private Timestamp login_date;//最近登陆时间
     private String ip; //最近登陆ip
+    private Set<SysRole> roles = new HashSet<>();
 
     public String getUsername() {
         return username;
@@ -115,5 +118,13 @@ public class SysUser extends BaseEntity {
 
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    public Set<SysRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<SysRole> roles) {
+        this.roles = roles;
     }
 }

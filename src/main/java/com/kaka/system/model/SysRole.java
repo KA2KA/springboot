@@ -1,5 +1,9 @@
 package com.kaka.system.model;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 系统角色表
  * Created by wuwan on 2016/9/30.
@@ -9,6 +13,9 @@ public class SysRole extends BaseEntity {
     private String description;
     private Integer state;//
     private Long parentId; //角色父id
+    private Set<SysUser> users =new HashSet<>();
+    private Set<SysMenu> menus =new HashSet<>();
+
 
 
     public String getRolename() {
@@ -41,5 +48,21 @@ public class SysRole extends BaseEntity {
 
     public void setParentId(Long parentId) {
         this.parentId = parentId;
+    }
+
+    public Set<SysUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<SysUser> users) {
+        this.users = users;
+    }
+
+    public Set<SysMenu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(Set<SysMenu> menus) {
+        this.menus = menus;
     }
 }
