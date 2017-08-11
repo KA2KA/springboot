@@ -23,6 +23,11 @@ public class SysUserServiceImpl implements SysUserService {
 
 
     @Override
+    public void addUser(SysUser sysUser) {
+        sysUserDao.insertSysUser(sysUser);
+    }
+
+    @Override
     public SysUser findUserAndRoleByUserName(String username) {
         SysUser sysUser = sysUserDao.findByUserName(username);
         Set<SysRole> sysRole = sysRoleDaoMapper.findByUserId(sysUser.getId());

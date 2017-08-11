@@ -7,6 +7,13 @@ import com.kaka.msystem.model.SysUser;
  */
 
 public interface SysUserService {
+
+    /**
+     * 添加用户
+     */
+    void addUser(SysUser sysUser);
+
+
     /**
      * 根据用户名查找用户信息+用户角色信息
      *
