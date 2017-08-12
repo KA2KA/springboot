@@ -3,8 +3,9 @@
 <head>
     <title>SpringBoot</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="/css/main.css" th:href="@{/css/main.css}"/>
-    <script data-main="/../common/scripts/main" th:src="@{/../common/scripts/require.js}"></script>
+    <script type="text/javascript" data-main="/common/scripts/main" th:src="@{/common/scripts/lib/require.js}" th:defer="true" th:async="true"></script>
+    <!--<script  data-main="/common/scripts/main" src="https://cdn.bootcss.com/require.js/2.3.4/require.min.js" defer="defer" async="async"></script>-->
+
 </head>
 <body>
 <form class="form-signin" role="form" th:action="@{/msystem/user/login}" th:method="post">
