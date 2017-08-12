@@ -1,10 +1,12 @@
 package com.kaka.msystem.service.impl;
 
+import com.kaka.common.utils.Result;
 import com.kaka.msystem.dao.SysRoleDaoMapper;
 import com.kaka.msystem.dao.SysUserMapper;
 import com.kaka.msystem.model.SysRole;
 import com.kaka.msystem.model.SysUser;
 import com.kaka.msystem.service.SysUserService;
+import com.kaka.utils.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +25,17 @@ public class SysUserServiceImpl implements SysUserService {
 
 
     @Override
-    public void addUser(SysUser sysUser) {
-        sysUserDao.insertSysUser(sysUser);
+    public Result addUser(SysUser sysUser) {
+        sysUser.setId(IDGenerator.getId());
+        return sysUserDao.insertSysUser(sysUser) <= 0 ? Result.fail() : Result.ok();
+    }
+
+    @Override
+    public Result addOrUpdateUser(SysUser sysUser) {
+
+
+
+        return null;
     }
 
     @Override

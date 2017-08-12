@@ -1,5 +1,6 @@
 package com.kaka.msystem.service;
 
+import com.kaka.common.utils.Result;
 import com.kaka.msystem.model.SysUser;
 
 /**
@@ -9,9 +10,17 @@ import com.kaka.msystem.model.SysUser;
 public interface SysUserService {
 
     /**
-     * 添加用户
+     * 仅添加用户
      */
-    void addUser(SysUser sysUser);
+    Result addUser(SysUser sysUser);
+
+    /**
+     * 添加或者更新用户
+     *
+     * @param sysUser
+     * @return
+     */
+    Result addOrUpdateUser(SysUser sysUser);
 
 
     /**

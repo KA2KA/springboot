@@ -32,6 +32,6 @@
     </resultMap>
     <insert id="insertSysUser" parameterType="com.kaka.msystem.model.SysUser">
       INSERT  INTO  `sys_user` (id,username,password,nickname,phone,alias,login_date,state,create_by,update_by,del_flag,version)
-      VALUES(#{id},#{username},#{password},#{nickname},#{phone},#{alias},#{state},#{loginDate},#{createBy},#{updateBy},#{delFlag},#{version})
+      VALUES(#{id},#{username},#{password},#{nickname},#{phone},#{alias},#{state},#{loginDate},#{createBy},#{updateBy},#{delFlag},0)
     </insert>
 </mapper>

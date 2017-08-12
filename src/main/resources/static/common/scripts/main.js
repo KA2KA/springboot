@@ -9,8 +9,8 @@ requirejs.config({
     }
 });
 
-require(['jquery'], function ($) {
+require(['jquery','bootstrap'], function ($) {
     $(function () {
-        alert("Hello World!");
+        // alert("Hello World!");
     })
 })
