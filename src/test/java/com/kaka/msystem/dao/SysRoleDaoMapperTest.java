@@ -17,12 +17,12 @@ import java.util.Set;
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SysRoleDaoMapperTest {
     @Autowired
-    private SysRoleDaoMapper sysRoleDaoMapper;
+    private SysRoleMapper sysRoleMapper;
 
     @Test
     public void findByUserId() throws Exception {
 
-        Set<SysRole> sysRoles = sysRoleDaoMapper.findByUserId(Long.valueOf(1));
+        Set<SysRole> sysRoles = sysRoleMapper.findByUserId(Long.valueOf(1));
         sysRoles.forEach(obj -> System.out.println(obj.getRolename()));
 
 

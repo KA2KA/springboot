@@ -1,5 +1,6 @@
 package com.kaka.msystem.dao;
 
+import com.kaka.msystem.model.SysRole;
 import com.kaka.msystem.model.SysUser;
 import com.kaka.utils.IDGenerator;
 import com.kaka.utils.IdWorker;
@@ -10,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.Id;
+import java.util.Set;
 
 /**
  * Created by QIEGAO on 2017/8/1.
@@ -17,6 +19,16 @@ import javax.persistence.Id;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SysUserMapperTest {
+    @Autowired
+    private SysUserMapper userDao;
+    @Test
+    public void findUserRoleByUserName() throws Exception {
+        SysUser user = userDao.findUserRoleByUserName("chengli");
+        Set<SysRole> sysRoleSet = user.getSysRoleSet();
+        System.out.println(sysRoleSet);
+
+    }
+
     @Test
     public void updateUser() throws Exception {
         SysUser sysUser = new SysUser();
@@ -25,8 +37,7 @@ public class SysUserMapperTest {
         int i = userDao.updateSysUser(sysUser);
     }
 
-    @Autowired
-    private SysUserMapper userDao;
+
 
     @Test
     public void insertUser() throws Exception {

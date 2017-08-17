@@ -8,6 +8,7 @@ import java.util.Set;
  * Created by wuwan on 2016/9/30.
  */
 public class SysRole extends BaseEntity {
+
     private String rolename;
     private String description;
     private Integer state;//

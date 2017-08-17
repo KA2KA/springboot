@@ -1,7 +1,7 @@
 package com.kaka.msystem.service.impl;
 
 import com.kaka.common.utils.Result;
-import com.kaka.msystem.dao.SysRoleDaoMapper;
+import com.kaka.msystem.dao.SysRoleMapper;
 import com.kaka.msystem.dao.SysUserMapper;
 import com.kaka.msystem.model.SysRole;
 import com.kaka.msystem.model.SysUser;
@@ -21,7 +21,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Autowired
     private SysUserMapper sysUserDao;
     @Autowired
-    private SysRoleDaoMapper sysRoleDaoMapper;
+    private SysRoleMapper sysRoleMapper;
 
 
     @Override
@@ -41,7 +41,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public SysUser findUserAndRoleByUserName(String username) {
         SysUser sysUser = sysUserDao.findByUserName(username);
-        Set<SysRole> sysRole = sysRoleDaoMapper.findByUserId(sysUser.getId());
+        Set<SysRole> sysRole = sysRoleMapper.findByUserId(sysUser.getId());
         sysUser.setSysRoleSet(sysRole);
         return sysUser;
     }

@@ -7,7 +7,6 @@ import java.util.Set;
  * 系统角色用户关联表
  * Created by wuwan on 2016/9/30.
  */
-@Deprecated
 public class SysUserRole extends BaseEntity {
 //    private Long userId;
 //    private Long roleId;

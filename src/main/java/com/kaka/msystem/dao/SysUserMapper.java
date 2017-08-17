@@ -2,6 +2,7 @@ package com.kaka.msystem.dao;
 
 import com.kaka.msystem.model.SysUser;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -35,6 +36,7 @@ public interface SysUserMapper {
     @Select("select * from  `sys_user` where username = #{username}")
     SysUser findByUserName(String username);
 
-    @Update("update  `sys_user` set ip=#{ip} where id =#{id} ")
     void updateSysUserIpById(SysUser user);
+
+    SysUser findUserRoleByUserName(@Param("username") String username);
 }

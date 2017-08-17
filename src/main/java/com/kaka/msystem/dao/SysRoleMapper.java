@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by QIEGAO on 2017/8/1.
  */
 
-public interface SysRoleDaoMapper {
+public interface SysRoleMapper {
 
 
 
@@ -22,4 +22,6 @@ public interface SysRoleDaoMapper {
      * @return
      */
     Set<SysRole> findByUserId(@Param("id") Long id);
+
+    int insert(SysRole sysRole);
 }

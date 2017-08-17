@@ -7,7 +7,6 @@ import java.util.Set;
  * 系统权限表
  * Created by wuwan on 2016/9/30.
  */
-@Deprecated
 public class SysPermission extends BaseEntity {
     //    private Long menuId;//菜单配置id
     //    private Long roleId;//角色配置id

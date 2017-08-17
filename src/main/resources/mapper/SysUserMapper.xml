@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.kaka.msystem.dao.SysUserMapper">
-    <resultMap id="BaseResultMap" type="com.kaka.msystem.model.SysUser">
-
+    <resultMap id="BaseMap" type="com.kaka.msystem.model.BaseEntity">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="remark" property="remark" jdbcType="VARCHAR"/>
         <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
         <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
         <result column="update_by" property="updateBy" jdbcType="VARCHAR"/>
         <result column="update_date" property="updateDate" jdbcType="TIMESTAMP"/>
-        <result column="del_flag" property="updateDate" jdbcType="INTEGER"/>
-        <result column="version" property="updateDate" jdbcType="INTEGER"/>
+        <result column="del_flag" property="delFlag" jdbcType="INTEGER"/>
+        <result column="version" property="version" jdbcType="INTEGER"/>
+    </resultMap>
 
+    <resultMap id="BaseResultMap" type="com.kaka.msystem.model.SysUser" extends="BaseMap">
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="usertype" property="usertype" jdbcType="TINYINT"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
@@ -24,14 +25,31 @@
         <result column="login_date" property="loginDate" jdbcType="TIMESTAMP"/>
         <result column="ip" property="ip" jdbcType="VARCHAR"/>
         <result column="state" property="state" jdbcType="TINYINT"/>
-
         <collection property="sysRoleSet" ofType="com.kaka.msystem.model.SysRole">
-            <id column="id" property="id" jdbcType="BIGINT"/>
+            <id column="roleid" property="id" jdbcType="BIGINT"/>
+            <result column="rolename" property="rolename" jdbcType="VARCHAR"/>
         </collection>
-
     </resultMap>
+    <sql id="SysUserColumns">
+      id,remark,create_by,create_date,update_by,update_date,del_flag,version
+    </sql>
+
     <insert id="insertSysUser" parameterType="com.kaka.msystem.model.SysUser">
       INSERT  INTO  `sys_user` (id,username,password,nickname,phone,alias,login_date,state,create_by,update_by,del_flag,version)
       VALUES(#{id},#{username},#{password},#{nickname},#{phone},#{alias},#{state},#{loginDate},#{createBy},#{updateBy},#{delFlag},0)
     </insert>
+    <!--此处将role表中的id 取别名 防止id重复-->
+    <select id="findUserRoleByUserName" resultMap="BaseResultMap">
+        SELECT
+        *,role.id as roleid
+        FROM `sys_user` user ,`sys_userrole` userrole ,`sys_role` role
+         WHERE user.id =userrole.userid AND role.id =userrole.roleid
+         and user.username=#{username,jdbcType=VARCHAR}
+    </select>
+    <!--更新ip-->
+    <update id="updateSysUserIpById" parameterType="com.kaka.msystem.model.SysUser">
+        UPDATE `sys_user` SET ip =#{ip,jdbcType=VARCHAR} WHERE id =#{id,jdbcType=BIGINT}
+    </update>
+
+
 </mapper>
