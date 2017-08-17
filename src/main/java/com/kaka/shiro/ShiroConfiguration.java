@@ -1,6 +1,6 @@
 package com.kaka.shiro;
 
-import com.kaka.shiro.realm.JDBCAuthRealm;
+import com.kaka.shiro.realm.JdbcAuthorizingRealm;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -30,7 +30,7 @@ public class ShiroConfiguration {
      */
     @Bean
     public Realm systemRealm() {
-        Realm realm = new JDBCAuthRealm();
+        Realm realm = new JdbcAuthorizingRealm();
         return realm;
     }
 }

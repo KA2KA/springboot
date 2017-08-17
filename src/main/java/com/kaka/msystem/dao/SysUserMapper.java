@@ -34,4 +34,7 @@ public interface SysUserMapper {
      */
     @Select("select * from  `sys_user` where username = #{username}")
     SysUser findByUserName(String username);
+
+    @Update("update  `sys_user` set ip=#{ip} where id =#{id} ")
+    void updateSysUserIpById(SysUser user);
 }
