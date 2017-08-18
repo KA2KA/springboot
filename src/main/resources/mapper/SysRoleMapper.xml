@@ -16,19 +16,32 @@
         <result column="description" property="description" jdbcType="VARCHAR"/>
         <result column="state" property="state" jdbcType="TINYINT"/>
         <result column="parent_id" property="parentId" jdbcType="BIGINT"/>
-        <!--用户表数据-->
+
         <collection property="sysUserSet" ofType="com.kaka.msystem.model.SysUser">
-            <id column="id" property="id" jdbcType="BIGINT"/>
+            <id column="userid" property="id" jdbcType="BIGINT"/>
         </collection>
         <collection property="sysMenuSet" ofType="com.kaka.msystem.model.SysMenu">
-            <id column="id" property="id" jdbcType="BIGINT"/>
+            <id column="menuid" property="id" jdbcType="BIGINT"/>
+            <id column="menuName" property="menuName" jdbcType="BIGINT"/>
         </collection>
     </resultMap>
+    <sql id="RoleColumn">
+
+    </sql>
+
+    <sql id="MenuColumn">
+          menu.id as menuid, menu.menuName,menu.url,menu.create_date,menu.update_date
+    </sql>
+
     <select id="findByUserId" resultMap="BaseResultMap" parameterType="java.lang.Long">
-      SELECT * FROM sys_role role
-      INNER  JOIN sys_permission permission ON role.id  =permission.roleid
-      INNER  JOIN sys_userrole userrole ON role.id  =userrole.roleid
-      WHERE userrole.id=#{id,jdbcType=BIGINT}
+        SELECT
+        role.* ,
+        <include refid="MenuColumn"/>
+        FROM sys_role role
+        INNER JOIN sys_userrole userrole ON role.id =userrole.roleid
+        LEFT JOIN sys_permission permission ON role.id =permission.roleid ,
+        `sys_menu` menu
+        WHERE userrole.userid=#{id,jdbcType=BIGINT}
     </select>
 
     <insert id="insert" parameterType="com.kaka.msystem.model.SysRole">

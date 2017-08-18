@@ -9,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Set;
+
 import static org.junit.Assert.*;
 
 /**
@@ -22,10 +24,9 @@ public class SysRoleMapperTest {
 
     @Test
     public void findByUserId() throws Exception {
-        SysRole sysRole = new SysRole();
-        sysRole.setId(IDGenerator.getId());
-        sysRole.setRolename("系统测试角色");
-        sysRoleMapper.insert(sysRole);
+        Set<SysRole> byUserId = sysRoleMapper.findByUserId(663472537157787648L);
+        byUserId.forEach(obj -> System.out.println(obj.getRolename()));
+
     }
 
 }

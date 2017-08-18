@@ -23,7 +23,7 @@ public class SysUserMapperTest {
     private SysUserMapper userDao;
     @Test
     public void findUserRoleByUserName() throws Exception {
-        SysUser user = userDao.findUserRoleByUserName("chengli");
+        SysUser user = userDao.findURoleByUserName("chengli");
         Set<SysRole> sysRoleSet = user.getSysRoleSet();
         System.out.println(sysRoleSet);
 

@@ -38,7 +38,7 @@ public interface SysUserMapper {
 
     void updateSysUserIpById(SysUser user);
 
-    SysUser findUserRoleByUserName(@Param("username") String username);
+    SysUser findURoleByUserName(@Param("username") String username);
 
     @Update("update `sys_user` set login_address =#{loginAddress} where id =#{userId}")
     void updateSysUserLoginAddress(Long userId, String addressByIp);

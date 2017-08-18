@@ -39,7 +39,7 @@
       VALUES(#{id},#{username},#{password},#{nickname},#{phone},#{alias},#{state},#{loginDate},#{createBy},#{updateBy},#{delFlag},0)
     </insert>
     <!--此处将role表中的id 取别名 防止id重复-->
-    <select id="findUserRoleByUserName" resultMap="BaseResultMap">
+    <select id="findURoleByUserName" resultMap="BaseResultMap">
         SELECT
         *,role.id as roleid
         FROM `sys_user` user ,`sys_userrole` userrole ,`sys_role` role
