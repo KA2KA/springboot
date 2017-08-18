@@ -17,7 +17,6 @@ import org.apache.shiro.web.filter.mgt.DefaultFilter;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.core.task.TaskExecutor;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -34,8 +33,6 @@ import static org.apache.shiro.web.filter.mgt.DefaultFilter.user;
  * Created by QIEGAO on 2017/8/10.
  */
 public class JdbcAuthorizingRealm extends AuthorizingRealm {
-    @Autowired
-    private TaskExecutor taskExecutor;
 
     @Autowired
     private SysUserMapper sysUserMapper;
@@ -64,7 +61,6 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         user.setIp(IPUtils.getIpAddr(request));
         sysUserMapper.updateSysUserIpById(user);
-
         List<String> permissions = new ArrayList<>();
         Set<SysRole> roles = user.getSysRoleSet();
         if (roles != null && !roles.isEmpty()) {

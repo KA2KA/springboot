@@ -7,26 +7,27 @@ import java.util.Set;
  * 系统权限表
  * Created by wuwan on 2016/9/30.
  */
+@Deprecated
 public class SysPermission extends BaseEntity {
     //    private Long menuId;//菜单配置id
     //    private Long roleId;//角色配置id
-    private Set<SysMenu> sysMenuSet = new HashSet<>();
-    private Set<SysRole> sysRoleSet = new HashSet<>();
+    private SysMenu sysMenu;
+    private SysRole sysRole;
 
-    public Set<SysMenu> getSysMenuSet() {
-        return sysMenuSet;
+    public SysMenu getSysMenu() {
+        return sysMenu;
     }
 
-    public void setSysMenuSet(Set<SysMenu> sysMenuSet) {
-        this.sysMenuSet = sysMenuSet;
+    public void setSysMenu(SysMenu sysMenu) {
+        this.sysMenu = sysMenu;
     }
 
-    public Set<SysRole> getSysRoleSet() {
-        return sysRoleSet;
+    public SysRole getSysRole() {
+        return sysRole;
     }
 
-    public void setSysRoleSet(Set<SysRole> sysRoleSet) {
-        this.sysRoleSet = sysRoleSet;
+    public void setSysRole(SysRole sysRole) {
+        this.sysRole = sysRole;
     }
 }
 
