@@ -17,12 +17,16 @@ import org.apache.shiro.web.filter.mgt.DefaultFilter;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -33,7 +37,8 @@ import static org.apache.shiro.web.filter.mgt.DefaultFilter.user;
  * Created by QIEGAO on 2017/8/10.
  */
 public class JdbcAuthorizingRealm extends AuthorizingRealm {
-
+    @Resource(name = "executor")
+    private TaskExecutor taskExecutor;
     @Autowired
     private SysUserMapper sysUserMapper;
 
@@ -44,7 +49,7 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();
         if (StringUtils.isNotEmpty(username)) {
-            SysUser user = sysUserMapper.findUserRoleByUserName(username);
+            SysUser user = sysUserMapper.findByUserName(username);
             if (!user.isDelFlag()) {
                 throw new LockedAccountException("用户账号被禁用，请联系管理员！");
             }
@@ -59,8 +64,10 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
         SysUser user = (SysUser) principal.fromRealm(this.getName()).iterator().next();//获取session中的用户
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        user.setIp(IPUtils.getIpAddr(request));
-        sysUserMapper.updateSysUserIpById(user);
+
+        this.saveUserLoginInfo(user, IPUtils.getIpAddr(request));
+
+//        将权限赋给用户
         List<String> permissions = new ArrayList<>();
         Set<SysRole> roles = user.getSysRoleSet();
         if (roles != null && !roles.isEmpty()) {
@@ -72,9 +79,22 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
             }
         }
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-
+        info.addRoles(new HashSet(roles));
         info.addStringPermissions(permissions);
         return info;
+    }
+
+    /**
+     * 更新用户登陆信息
+     *
+     * @param user
+     * @param ip
+     */
+    private void saveUserLoginInfo(SysUser user, String ip) {
+        taskExecutor.execute(() -> sysUserMapper.updateSysUserLoginAddress(user.getId(), IPUtils.getAddressByIp(ip)));
+        user.setIp(ip);
+        user.setLoginDate(new Timestamp(System.currentTimeMillis()));
+        sysUserMapper.updateSysUserIpById(user);
     }
 
 

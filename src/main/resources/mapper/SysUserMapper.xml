@@ -48,7 +48,8 @@
     </select>
     <!--更新ip-->
     <update id="updateSysUserIpById" parameterType="com.kaka.msystem.model.SysUser">
-        UPDATE `sys_user` SET ip =#{ip,jdbcType=VARCHAR} WHERE id =#{id,jdbcType=BIGINT}
+        UPDATE `sys_user` SET ip =#{ip,jdbcType=VARCHAR},loginDate=#{loginDate jdbcType=TIMESTAMP}
+        WHERE id =#{id,jdbcType=BIGINT}
     </update>
 
 
