@@ -10,10 +10,10 @@ public class IDGenerator {
         return new IdWorker().getId();
     }
 
-    public static void main(String[] args) {
-        System.out.println("id:\n"+getId());
-        System.out.println("long max:\n"+Long.MAX_VALUE);
-    }
+//    public static void main(String[] args) {
+//        System.out.println("id:\n"+getId());
+//        System.out.println("long max:\n"+Long.MAX_VALUE);
+//    }
 
 
 }

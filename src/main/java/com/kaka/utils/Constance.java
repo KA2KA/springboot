@@ -12,5 +12,4 @@ public class Constance {
     public static final String STATUS_NO = "1";
 
 
-
 }

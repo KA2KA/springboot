@@ -14,6 +14,8 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -30,7 +32,7 @@ import java.util.Set;
  * Created by QIEGAO on 2017/8/10.
  */
 public class JdbcAuthorizingRealm extends AuthorizingRealm {
-    //    @Resource(name = "executor")
+//        @Resource(name = "executor")
 //    private TaskExecutor taskExecutor;
     @Autowired
     private SysUserMapper sysUserMapper;
