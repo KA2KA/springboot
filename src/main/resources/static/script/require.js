@@ -2143,3 +2143,14 @@ var requirejs, require, define;
     //Set up with config info.
     req(cfg);
 }(this, (typeof setTimeout === 'undefined' ? undefined : setTimeout)));
+
+
+
+var domain =window.location.href;
+var static_domain ="http://localhost:8085";
+if(static_domain.indexOf('test')>-1){
+    static_domain ="";
+}
+requirejs.config({
+    baseUrl:static_domain+"/script"
+});
