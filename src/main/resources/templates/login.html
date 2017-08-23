@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>springboot-注册中心</title>
+</head>
+<body>
+<form name="login-form" th:action="@{/user/login}" method="post">
+    <ul style="list-style: none">
+        <li><label>用户名：</label><input id="username" name="username" value=""/></li>
+        <li><label>密 码：</label><input id="password" name="password" value=""/></li>
+        <li><input type="submit" value="登陆"/></li>
+    </ul>
+</form>
+</body>
+</html>

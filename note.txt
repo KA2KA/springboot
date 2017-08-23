@@ -1,7 +1,0 @@
-1.更新maven profile：
-    1).${var}在该版本中不生效，使用@var@代替
-2.更新热部署不生效
-    1).idea默认不会自动编译，需到Setting中配置，并在ctrl+shift+alt+/界面中选中apprun
-    参看配置链接：http://www.jb51.net/article/112473.htm
-
-

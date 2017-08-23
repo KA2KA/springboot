@@ -6,6 +6,7 @@ import com.kaka.msystem.model.SysUserRole;
  * 用户角色表
  * Created by QIEGAO on 2017/8/17.
  */
+@Deprecated
 public interface SysUserRoleMapper {
 
     /**
