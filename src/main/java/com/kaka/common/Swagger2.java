@@ -6,6 +6,7 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -25,12 +26,16 @@ public class Swagger2 {
     }
 
     private ApiInfo apiInfo() {
-        ApiInfoBuilder docApi = new ApiInfoBuilder();
-        docApi.title("Spring Boot中使用Swagger2构建RESTful APIs");
-        docApi.description("更多Spring Boot相关文章请关注：http://blog.didispace.com/");
-        docApi.termsOfServiceUrl("http://blog.didispace.com/");
-        docApi.contact("切糕");
-        docApi.version("1.0");
-        return docApi.build();
+        Contact contact=new Contact("作者名",
+                "http://www.jianshu.com/u/f192766abeab","email地址");
+        return new ApiInfoBuilder()
+                .title("Spring Boot中使用Swagger2")
+                .description("Hello Swagger2")
+//                .termsOfServiceUrl("http://www.jianshu.com/u/f192766abeab")
+                //.contact("作者名")
+                .contact(contact)
+                .version("1.0")
+                .build();
+
     }
 }

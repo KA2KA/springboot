@@ -3,15 +3,21 @@
 <head>
     <meta http-equiv="Content-Type"  content="text/html;charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>springboot</title>
+    <!--/*@thymesVar id="title" type="java.lang.String"*/-->
+    <title th:text="${title}"></title>
     <link th:href="@{/css/index.css}" rel="stylesheet"/>
 </head>
 <body>
 <div>
-
+    <form name="login-form" th:action="@{/login}" method="post">
+        <ul style="list-style: none">
+            <li><label>用户名：</label><input id="username" name="username" value=""/></li>
+            <li><label>密 码：</label><input id="password" name="password" value=""/></li>
+            <li><input type="submit" value="登陆"/></li>
+        </ul>
+    </form>
 </div>
 </body>
-<script type="text/javascript" data-main="script/common" th:src="@{/script/require.js}"
-        defer="defer" async="true"></script>
+<script type="text/javascript" data-main="script/common" th:src="@{/script/require.js}" defer="defer" async="true"></script>
 <script type="text/javascript" th:src="@{/script/jquery-3.2.1.js}"></script>
 </html>

@@ -10,6 +10,7 @@ import com.kaka.utils.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.security.auth.login.AccountException;
 import java.util.Set;
 
 /**
@@ -34,7 +35,6 @@ public class SysUserServiceImpl implements SysUserService {
     public Result addOrUpdateUser(SysUser sysUser) {
 
 
-
         return null;
     }
 
@@ -44,5 +44,17 @@ public class SysUserServiceImpl implements SysUserService {
         Set<SysRole> sysRole = sysRoleMapper.findByUserId(sysUser.getId());
         sysUser.setSysRoleSet(sysRole);
         return sysUser;
+    }
+
+    @Override
+    public Result login(SysUser user) throws AccountException {
+        Result result = Result.ok();
+        if (user == null) {
+            throw new AccountException("获取用户名失败!");
+        }
+        user = sysUserDao.findByUserName(user.getUsername());
+//        TODO
+        result.setData(user);
+        return result;
     }
 }
