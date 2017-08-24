@@ -1,6 +1,5 @@
 package com.kaka.msystem.web;
 
-import com.kaka.common.utils.Result;
 import com.kaka.msystem.model.SysUser;
 import com.kaka.msystem.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
@@ -11,15 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
 
 /**
  * Created by wuwanggao on 2017/8/11.
  */
-@Controller
-@RequestMapping(value = "/user/")
+//@Controller
+//@RequestMapping(value = "/user/")
 public class SysUserController {
 
     @Autowired

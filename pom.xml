@@ -6,7 +6,10 @@
     <groupId>com.kaka</groupId>
     <artifactId>spring-boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>../system</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
@@ -82,12 +85,12 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.6.1</version>
+            <version>2.2.2</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.6.1</version>
+            <version>2.2.2</version>
         </dependency>
         <!--swagger2 文档 end-->
 

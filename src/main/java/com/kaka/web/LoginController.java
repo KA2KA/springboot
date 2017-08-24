@@ -18,10 +18,12 @@ import javax.security.auth.login.AccountException;
  * Created by QIEGAO on 2017/8/24.
  */
 @Controller
-public class LoginController extends BaseController {
+public class LoginController {
 
+    @Autowired
+    SysUserService sysUserService;
     @ApiOperation(value = "login", notes = "用户登陆")
-    @RequestMapping(name = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(ModelMap modelMap, SysUser user) {
         Result result = null;
         try {
