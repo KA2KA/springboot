@@ -6,13 +6,21 @@
     <!--/*@thymesVar id="title" type="java.lang.String"*/-->
     <title th:text="${title}"></title>
     <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
 </head>
 <body>
 <div>
-
+    <div id="app">
+        {{ message }}
+    </div>
 </div>
 </body>
-<script type="text/javascript" data-main="script/common" th:src="@{/script/require.js}" defer="defer" async="true"></script>
-<script type="text/javascript" th:src="@{/script/jquery-3.2.1.js}"></script>
-<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+</script>
 </html>
