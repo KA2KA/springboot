@@ -1,10 +1,11 @@
 package com.kaka.shiro.realm;
 
-import com.kaka.msystem.dao.SysRoleMapper;
-import com.kaka.msystem.dao.SysUserMapper;
-import com.kaka.msystem.model.SysMenu;
-import com.kaka.msystem.model.SysRole;
-import com.kaka.msystem.model.SysUser;
+import com.kaka.users.dao.SysRoleMapper;
+import com.kaka.users.dao.SysUserMapper;
+import com.kaka.users.model.SysMenu;
+import com.kaka.users.model.SysRole;
+import com.kaka.users.model.SysUser;
+import com.kaka.utils.Constance;
 import com.kaka.utils.IPUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.*;
@@ -13,13 +14,9 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.task.TaskExecutor;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -32,8 +29,6 @@ import java.util.Set;
  * Created by QIEGAO on 2017/8/10.
  */
 public class JdbcAuthorizingRealm extends AuthorizingRealm {
-//        @Resource(name = "executor")
-//    private TaskExecutor taskExecutor;
     @Autowired
     private SysUserMapper sysUserMapper;
     @Autowired
@@ -48,8 +43,8 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
         if (StringUtils.isNotEmpty(username)) {
             SysUser user = sysUserMapper.findByUserName(username);
             if (user == null)
-                throw new UnknownAccountException("未查询到系统用户，请重新输入");
-            if (!user.isDelFlag()) {
+                throw new UnknownAccountException("用户不存在");
+            if (Constance.INT_NO == user.getState()) {
                 throw new LockedAccountException("用户账号被禁用，请联系管理员！");
             }
             return new SimpleAuthenticationInfo(user, user.getPassword(), this.getClass().getName());
@@ -63,7 +58,6 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
         SysUser user = (SysUser) principal.fromRealm(this.getName()).iterator().next();//获取session中的用户
-
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         this.saveUserLoginInfo(user, IPUtils.getIpAddr(request));
 //        通过角色查找权限并将权限赋值给用户
@@ -93,7 +87,7 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
 //        taskExecutor.execute(() -> sysUserMapper.updateSysUserLoginAddress(user.getId(), IPUtils.getAddressByIp(ip)));
         user.setIp(ip);
         user.setLoginDate(new Timestamp(System.currentTimeMillis()));
-        sysUserMapper.updateSysUserIpById(user);
+//        sysUserMapper.updateSysUserIpById(user);
     }
 
 

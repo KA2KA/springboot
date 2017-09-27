@@ -1,4 +1,4 @@
-package com.kaka.msystem;
+package com.kaka.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -10,6 +10,13 @@ public class Constance {
      */
     public static final String STATUS_YES = "0";
     public static final String STATUS_NO = "1";
+    public static final int INT_YES = 0;
+    public static final int INT_NO = 1;
 
+
+    public static void main(String[] args) {
+        System.out.println(EnumsConstance.sex.getValue1());
+        System.out.println(EnumsConstance.sex.getRemark1());
+    }
 
 }
