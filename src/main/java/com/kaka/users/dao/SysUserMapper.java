@@ -1,6 +1,7 @@
 package com.kaka.users.dao;
 
 import com.kaka.users.model.SysUser;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysUserMapper {
     /**

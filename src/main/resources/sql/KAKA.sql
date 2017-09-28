@@ -60,7 +60,8 @@ CREATE TABLE `sys_userrole` (
 /*系统菜单表*/
 CREATE TABLE `sys_menu` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
-  `menuName` VARCHAR(10) DEFAULT NULL COMMENT '菜单名称',
+  `name` VARCHAR(10) DEFAULT NULL COMMENT '菜单名称',
+  `perm` VARCHAR(100) DEFAULT  NULL  COMMENT 'WildcardPermission',
   `url` VARCHAR(100) DEFAULT NULL COMMENT '菜单url',
   `action` VARCHAR(100) DEFAULT NULL COMMENT '菜单url',
   `iconcls` VARCHAR(50) DEFAULT NULL COMMENT '菜单图标',

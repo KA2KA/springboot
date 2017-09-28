@@ -1,10 +1,9 @@
 package com.kaka.shiro.realm;
 
-import com.kaka.users.dao.SysRoleMapper;
 import com.kaka.users.dao.SysUserMapper;
-import com.kaka.users.model.SysMenu;
 import com.kaka.users.model.SysRole;
 import com.kaka.users.model.SysUser;
+import com.kaka.users.service.SysUserAuthService;
 import com.kaka.utils.Constance;
 import com.kaka.utils.IPUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -19,7 +18,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,8 +30,7 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
     @Autowired
     private SysUserMapper sysUserMapper;
     @Autowired
-    private SysRoleMapper sysRoleMapper;
-
+    private SysUserAuthService sysUserAuthService;
 
     //认证.登录
     @Override
@@ -57,23 +54,16 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
-//        SysUser user = (SysUser) principal.fromRealm(this.getName()).iterator().next();//获取session中的用户
-//        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-//        this.saveUserLoginInfo(user, IPUtils.getIpAddr(request));
-////        通过角色查找权限并将权限赋值给用户
-//        List<String> permissions = new ArrayList<>();
-//        Set<SysRole> roles = sysRoleMapper.findByUserId(user.getId());
-//        if (roles != null && !roles.isEmpty()) {
-//            for (SysRole role : roles) {
-//                Set<SysMenu> menus = role.getSysMenuSet();
-//                if (menus != null && !menus.isEmpty()) {
-//                    menus.forEach(obj -> permissions.add(obj.getMenuName()));
-//                }
-//            }
-//        }
+        SysUser user = (SysUser) principal.getPrimaryPrincipal();
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        String ip = IPUtils.getIpAddr(request);
+        user = this.saveUserLoginInfo(user, ip);
+
+        Set<SysRole> roleSet = sysUserAuthService.findRolesByUser(user);
+        List<String> permissions = sysUserAuthService.findPermissionsByUser(user);
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-//        info.addRoles(new HashSet(roles));
-//        info.addStringPermissions(permissions);
+        info.addRoles(new HashSet(roleSet));
+        info.addStringPermissions(permissions);
         return info;
     }
 
@@ -83,11 +73,16 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
      * @param user
      * @param ip
      */
-    private void saveUserLoginInfo(SysUser user, String ip) {
-//        taskExecutor.execute(() -> sysUserMapper.updateSysUserLoginAddress(user.getId(), IPUtils.getAddressByIp(ip)));
+    private SysUser saveUserLoginInfo(SysUser user, String ip) {
+        user = sysUserMapper.findByUserName(user.getUsername());
+        if (user == null) {
+            return user;
+        }
         user.setIp(ip);
+        user.setLoginAddress(IPUtils.getAddressByIp(ip));
         user.setLoginDate(new Timestamp(System.currentTimeMillis()));
-//        sysUserMapper.updateSysUserIpById(user);
+        sysUserMapper.updateByPrimaryKey(user);
+        return user;
     }
 
 

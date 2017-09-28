@@ -12,6 +12,10 @@ public class Constance {
     public static final String STATUS_NO = "1";
     public static final int INT_YES = 0;
     public static final int INT_NO = 1;
+    /**
+     * 系统超级管理员
+     */
+    public static final String USER_ROOT = "admin";
 
 
     public static void main(String[] args) {

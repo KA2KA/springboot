@@ -11,7 +11,12 @@ public class SysMenu extends BaseEntity {
     /**
      * 菜单名称
      */
-    private String menuname;
+    private String name;
+
+    /**
+     * WildcardPermission
+     */
+    private String perm;
 
     /**
      * 菜单url
@@ -85,6 +90,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单ID
+     *
      * @return id 菜单ID
      */
     public Long getId() {
@@ -93,6 +99,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单ID
+     *
      * @param id 菜单ID
      */
     public void setId(Long id) {
@@ -101,22 +108,43 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单名称
-     * @return menuName 菜单名称
+     *
+     * @return name 菜单名称
      */
-    public String getMenuname() {
-        return menuname;
+    public String getName() {
+        return name;
     }
 
     /**
      * 菜单名称
-     * @param menuname 菜单名称
+     *
+     * @param name 菜单名称
      */
-    public void setMenuname(String menuname) {
-        this.menuname = menuname == null ? null : menuname.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    /**
+     * WildcardPermission
+     *
+     * @return perm WildcardPermission
+     */
+    public String getPerm() {
+        return perm;
+    }
+
+    /**
+     * WildcardPermission
+     *
+     * @param perm WildcardPermission
+     */
+    public void setPerm(String perm) {
+        this.perm = perm == null ? null : perm.trim();
     }
 
     /**
      * 菜单url
+     *
      * @return url 菜单url
      */
     public String getUrl() {
@@ -125,6 +153,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单url
+     *
      * @param url 菜单url
      */
     public void setUrl(String url) {
@@ -133,6 +162,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单url
+     *
      * @return action 菜单url
      */
     public String getAction() {
@@ -141,6 +171,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单url
+     *
      * @param action 菜单url
      */
     public void setAction(String action) {
@@ -149,6 +180,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单图标
+     *
      * @return iconcls 菜单图标
      */
     public String getIconcls() {
@@ -157,6 +189,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单图标
+     *
      * @param iconcls 菜单图标
      */
     public void setIconcls(String iconcls) {
@@ -165,6 +198,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 级别
+     *
      * @return grade 级别
      */
     public Boolean getGrade() {
@@ -173,6 +207,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 级别
+     *
      * @param grade 级别
      */
     public void setGrade(Boolean grade) {
@@ -181,6 +216,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单状态
+     *
      * @return state 菜单状态
      */
     public Boolean getState() {
@@ -189,6 +225,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 菜单状态
+     *
      * @param state 菜单状态
      */
     public void setState(Boolean state) {
@@ -197,6 +234,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 叶子节点
+     *
      * @return isleaf 叶子节点
      */
     public Boolean getIsleaf() {
@@ -205,6 +243,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 叶子节点
+     *
      * @param isleaf 叶子节点
      */
     public void setIsleaf(Boolean isleaf) {
@@ -213,6 +252,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 父菜单ID
+     *
      * @return parentid 父菜单ID
      */
     public Integer getParentid() {
@@ -221,6 +261,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 父菜单ID
+     *
      * @param parentid 父菜单ID
      */
     public void setParentid(Integer parentid) {
@@ -229,6 +270,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 备注
+     *
      * @return remark 备注
      */
     public String getRemark() {
@@ -237,6 +279,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 备注
+     *
      * @param remark 备注
      */
     public void setRemark(String remark) {
@@ -245,6 +288,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 创建数据用户
+     *
      * @return create_by 创建数据用户
      */
     public String getCreateBy() {
@@ -253,6 +297,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 创建数据用户
+     *
      * @param createBy 创建数据用户
      */
     public void setCreateBy(String createBy) {
@@ -261,6 +306,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 更新数据用户
+     *
      * @return update_by 更新数据用户
      */
     public String getUpdateBy() {
@@ -269,6 +315,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 更新数据用户
+     *
      * @param updateBy 更新数据用户
      */
     public void setUpdateBy(String updateBy) {
@@ -277,6 +324,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 创建数据时间
+     *
      * @return create_date 创建数据时间
      */
     public Date getCreateDate() {
@@ -285,6 +333,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 创建数据时间
+     *
      * @param createDate 创建数据时间
      */
     public void setCreateDate(Date createDate) {
@@ -293,6 +342,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 更新数据时间
+     *
      * @return update_date 更新数据时间
      */
     public Date getUpdateDate() {
@@ -301,6 +351,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 更新数据时间
+     *
      * @param updateDate 更新数据时间
      */
     public void setUpdateDate(Date updateDate) {
@@ -309,6 +360,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 删除标记：0正常 1不正常
+     *
      * @return del_flag 删除标记：0正常 1不正常
      */
     public Integer getDelFlag() {
@@ -317,6 +369,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 删除标记：0正常 1不正常
+     *
      * @param delFlag 删除标记：0正常 1不正常
      */
     public void setDelFlag(Integer delFlag) {
@@ -325,6 +378,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 数据版本
+     *
      * @return version 数据版本
      */
     public Integer getVersion() {
@@ -333,6 +387,7 @@ public class SysMenu extends BaseEntity {
 
     /**
      * 数据版本
+     *
      * @param version 数据版本
      */
     public void setVersion(Integer version) {
