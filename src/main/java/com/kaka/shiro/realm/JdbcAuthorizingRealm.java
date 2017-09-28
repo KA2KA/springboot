@@ -57,23 +57,23 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
-        SysUser user = (SysUser) principal.fromRealm(this.getName()).iterator().next();//获取session中的用户
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        this.saveUserLoginInfo(user, IPUtils.getIpAddr(request));
-//        通过角色查找权限并将权限赋值给用户
-        List<String> permissions = new ArrayList<>();
-        Set<SysRole> roles = sysRoleMapper.findByUserId(user.getId());
-        if (roles != null && !roles.isEmpty()) {
-            for (SysRole role : roles) {
-                Set<SysMenu> menus = role.getSysMenuSet();
-                if (menus != null && !menus.isEmpty()) {
-                    menus.forEach(obj -> permissions.add(obj.getMenuName()));
-                }
-            }
-        }
+//        SysUser user = (SysUser) principal.fromRealm(this.getName()).iterator().next();//获取session中的用户
+//        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+//        this.saveUserLoginInfo(user, IPUtils.getIpAddr(request));
+////        通过角色查找权限并将权限赋值给用户
+//        List<String> permissions = new ArrayList<>();
+//        Set<SysRole> roles = sysRoleMapper.findByUserId(user.getId());
+//        if (roles != null && !roles.isEmpty()) {
+//            for (SysRole role : roles) {
+//                Set<SysMenu> menus = role.getSysMenuSet();
+//                if (menus != null && !menus.isEmpty()) {
+//                    menus.forEach(obj -> permissions.add(obj.getMenuName()));
+//                }
+//            }
+//        }
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        info.addRoles(new HashSet(roles));
-        info.addStringPermissions(permissions);
+//        info.addRoles(new HashSet(roles));
+//        info.addStringPermissions(permissions);
         return info;
     }
 
