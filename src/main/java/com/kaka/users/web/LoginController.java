@@ -26,7 +26,7 @@ public class LoginController {
      */
     @RequestMapping(method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     public ModelAndView view() {
-        return new ModelAndView(new RedirectView("/login"));
+        return new ModelAndView(new RedirectView("login"));
     }
 
 

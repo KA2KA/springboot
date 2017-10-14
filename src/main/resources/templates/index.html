@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type"  content="text/html;charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <!--/*@thymesVar id="title" type="java.lang.String"*/-->
-    <title th:text="${title}"></title>
-    <link th:href="@{/css/index.css}" rel="stylesheet"/>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <script type="text/javascript" th:src="@{js/jquery-1.11.3.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 </head>
+
 <body>
-<div>
-    <div id="app">
-        {{ message }}
+<nav class="nav navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="#" class="navbar-brand">
+                <img src="img/logo.png" style=" border-radius:20%;height: 40px; margin-top:-10px;" title="威士顿酒庄"/>
+            </a>
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="active"><a href="#">产品</a></li>
+                    <li><a href="#">解决方案</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li class=" dropdown">
+                        <a href="#" class=" dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>客服</a>
+                        <ul class="dropdown-menu" style="background: #286090;">
+                            <li role="presentation"><a href="#">电话</a></li>
+                            <li role="presentation"><a href="#">聊天机器人</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="onepage">
+    <a href="#"><img class="img-responsive" th:src="@{/img/index.jpeg}"></a>
+    <div class="container">
+        <div>
+            <h1>关于我们</h1>
+            <span>用心专营澳洲优质葡萄酒</span>
+        </div>
     </div>
 </div>
+
 </body>
-<script type="text/javascript">
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello2 Vue!'
-        }
-    })
-</script>
 </html>

@@ -12,19 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by Hem on 2017/6/30.
  */
 @Controller
-public class MainController{
+public class MainController {
 
-    @ApiOperation(value="index",notes = "访问系统主页")
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @ApiOperation(value = "index", notes = "访问系统主页")
+    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public ModelAndView index(ModelMap map) {
-        map.put("title", "spring-boot");
         return new ModelAndView("index");
     }
-
-
-
-
-
 
 
 }
