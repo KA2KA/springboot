@@ -1,6 +1,8 @@
 package com.kaka.users.web;
 
 import com.kaka.common.utils.Result;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.util.Assert;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +26,12 @@ public class LoginController {
      *
      * @return
      */
-    @RequestMapping(method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(method = RequestMethod.GET, produces = {"text/html;charset=UTF-8"})
     public ModelAndView view() {
-        return new ModelAndView(new RedirectView("login"));
+        if (!SecurityUtils.getSubject().isAuthenticated()) {
+            return new ModelAndView("login");
+        }
+        return new ModelAndView(new RedirectView("index"));
     }
 
 
@@ -42,6 +47,9 @@ public class LoginController {
     public Result login(@RequestParam String username, @RequestParam String password) {
         Assert.notNull(username, "username can not be empty");
         Assert.notNull(password, "password can not be empty");
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        SecurityUtils.getSubject().login(token);
+
 
         return Result.ok();
     }

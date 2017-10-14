@@ -1,4 +1,4 @@
-package com.kaka.common;
+package com.kaka.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

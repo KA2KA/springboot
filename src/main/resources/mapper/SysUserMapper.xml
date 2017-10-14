@@ -28,17 +28,7 @@
     login_date, ip, state, remark, create_by, update_by, create_date, update_date, del_flag, 
     version
   </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
-        select
-        <include refid="Base_Column_List"/>
-        from sys_user
-        where id = #{id,jdbcType=BIGINT}
-    </select>
 
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from sys_user
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
     <insert id="insert" parameterType="com.kaka.users.model.SysUser">
     insert into sys_user (id, username, usertype, 
       password, nickname, sex, 

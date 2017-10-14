@@ -11,9 +11,13 @@
     <context id="context" targetRuntime="MyBatis3">
 
         <property name="javaFileEncoding" value="UTF-8"/>
-        <commentGenerator type="com.kaka.utils.MyCommentGenerator"></commentGenerator>
+        <!--<commentGenerator type="com.kaka.utils.MyCommentGenerator"></commentGenerator>-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/>
+            <property name="suppressDate" value="false"/>
+        </commentGenerator>
         <!-- !!!! Database Configurations !!!! -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/KAKA"
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/kaka"
                         userId="root" password="pm_MY_2016@hs.cn"/>
 
         <javaTypeResolver>
@@ -36,19 +40,20 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!--<table tableName="sys_user"-->
-               <!--enableCountByExample="false" enableUpdateByExample="false"-->
-               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false">-->
+        <!--enableCountByExample="false" enableUpdateByExample="false"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+        <!--selectByExampleQueryId="false">-->
         <!--</table>-->
         <!--<table tableName="sys_role"-->
         <!--enableCountByExample="false" enableUpdateByExample="false"-->
         <!--enableDeleteByExample="false" enableSelectByExample="false"-->
         <!--selectByExampleQueryId="false">-->
         <!--</table>-->
-        <table tableName="sys_menu"
-        enableCountByExample="false" enableUpdateByExample="false"
-        enableDeleteByExample="false" enableSelectByExample="false"
-        selectByExampleQueryId="false">
+        <table tableName="t_p_buyproject"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
         </table>
+
     </context>
 </generatorConfiguration>

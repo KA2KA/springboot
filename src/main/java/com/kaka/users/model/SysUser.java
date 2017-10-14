@@ -106,6 +106,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户ID
+     *
      * @return id 用户ID
      */
     public Long getId() {
@@ -114,6 +115,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户ID
+     *
      * @param id 用户ID
      */
     public void setId(Long id) {
@@ -122,6 +124,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户名
+     *
      * @return username 用户名
      */
     public String getUsername() {
@@ -130,6 +133,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户名
+     *
      * @param username 用户名
      */
     public void setUsername(String username) {
@@ -138,6 +142,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户类型
+     *
      * @return usertype 用户类型
      */
     public Byte getUsertype() {
@@ -146,6 +151,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户类型
+     *
      * @param usertype 用户类型
      */
     public void setUsertype(Byte usertype) {
@@ -154,6 +160,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户密码
+     *
      * @return password 用户密码
      */
     public String getPassword() {
@@ -162,6 +169,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户密码
+     *
      * @param password 用户密码
      */
     public void setPassword(String password) {
@@ -170,6 +178,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 昵称
+     *
      * @return nickname 昵称
      */
     public String getNickname() {
@@ -178,6 +187,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 昵称
+     *
      * @param nickname 昵称
      */
     public void setNickname(String nickname) {
@@ -186,6 +196,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 性别
+     *
      * @return sex 性别
      */
     public Boolean getSex() {
@@ -194,6 +205,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 性别
+     *
      * @param sex 性别
      */
     public void setSex(Boolean sex) {
@@ -202,6 +214,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 手机号
+     *
      * @return phone 手机号
      */
     public Integer getPhone() {
@@ -210,6 +223,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 手机号
+     *
      * @param phone 手机号
      */
     public void setPhone(Integer phone) {
@@ -218,6 +232,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 邮箱
+     *
      * @return email 邮箱
      */
     public String getEmail() {
@@ -226,6 +241,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 邮箱
+     *
      * @param email 邮箱
      */
     public void setEmail(String email) {
@@ -234,6 +250,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户头像
+     *
      * @return alias 用户头像
      */
     public String getAlias() {
@@ -242,6 +259,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 用户头像
+     *
      * @param alias 用户头像
      */
     public void setAlias(String alias) {
@@ -250,6 +268,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 最近登陆地址
+     *
      * @return login_address 最近登陆地址
      */
     public String getLoginAddress() {
@@ -258,6 +277,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 最近登陆地址
+     *
      * @param loginAddress 最近登陆地址
      */
     public void setLoginAddress(String loginAddress) {
@@ -266,6 +286,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 最近登陆时间
+     *
      * @return login_date 最近登陆时间
      */
     public Date getLoginDate() {
@@ -274,6 +295,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 最近登陆时间
+     *
      * @param loginDate 最近登陆时间
      */
     public void setLoginDate(Date loginDate) {
@@ -282,6 +304,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 登陆IP
+     *
      * @return ip 登陆IP
      */
     public String getIp() {
@@ -290,6 +313,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 登陆IP
+     *
      * @param ip 登陆IP
      */
     public void setIp(String ip) {
@@ -297,7 +321,8 @@ public class SysUser extends BaseEntity {
     }
 
     /**
-     * 用户状态 0正常  1禁用
+     * 用户状态 -1 待验证 0正常  1禁用
+     *
      * @return state 用户状态
      */
     public Integer getState() {
@@ -305,7 +330,8 @@ public class SysUser extends BaseEntity {
     }
 
     /**
-     * 用户状态  0正常  1禁用
+     * 用户状态 -1 待验证 0正常  1禁用
+     *
      * @param state 用户状态
      */
     public void setState(Integer state) {
@@ -314,6 +340,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 备注
+     *
      * @return remark 备注
      */
     public String getRemark() {
@@ -322,6 +349,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 备注
+     *
      * @param remark 备注
      */
     public void setRemark(String remark) {
@@ -330,6 +358,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 创建数据用户
+     *
      * @return create_by 创建数据用户
      */
     public String getCreateBy() {
@@ -338,6 +367,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 创建数据用户
+     *
      * @param createBy 创建数据用户
      */
     public void setCreateBy(String createBy) {
@@ -346,6 +376,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 更新数据用户
+     *
      * @return update_by 更新数据用户
      */
     public String getUpdateBy() {
@@ -354,6 +385,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 更新数据用户
+     *
      * @param updateBy 更新数据用户
      */
     public void setUpdateBy(String updateBy) {
@@ -362,6 +394,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 创建数据时间
+     *
      * @return create_date 创建数据时间
      */
     public Date getCreateDate() {
@@ -370,6 +403,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 创建数据时间
+     *
      * @param createDate 创建数据时间
      */
     public void setCreateDate(Date createDate) {
@@ -378,6 +412,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 更新数据时间
+     *
      * @return update_date 更新数据时间
      */
     public Date getUpdateDate() {
@@ -386,6 +421,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 更新数据时间
+     *
      * @param updateDate 更新数据时间
      */
     public void setUpdateDate(Date updateDate) {
@@ -394,6 +430,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 删除标记：0正常 1不正常
+     *
      * @return del_flag 删除标记：0正常 1不正常
      */
     public Integer getDelFlag() {
@@ -402,6 +439,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 删除标记：0正常 1不正常
+     *
      * @param delFlag 删除标记：0正常 1不正常
      */
     public void setDelFlag(Integer delFlag) {
@@ -410,6 +448,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 数据版本
+     *
      * @return version 数据版本
      */
     public Integer getVersion() {
@@ -418,6 +457,7 @@ public class SysUser extends BaseEntity {
 
     /**
      * 数据版本
+     *
      * @param version 数据版本
      */
     public void setVersion(Integer version) {

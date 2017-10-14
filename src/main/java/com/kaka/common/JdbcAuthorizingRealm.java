@@ -1,4 +1,4 @@
-package com.kaka.shiro.realm;
+package com.kaka.common;
 
 import com.kaka.users.dao.SysUserMapper;
 import com.kaka.users.model.SysRole;
