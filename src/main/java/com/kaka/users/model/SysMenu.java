@@ -273,6 +273,7 @@ public class SysMenu extends BaseEntity {
      *
      * @return remark 备注
      */
+    @Override
     public String getRemark() {
         return remark;
     }
@@ -282,6 +283,7 @@ public class SysMenu extends BaseEntity {
      *
      * @param remark 备注
      */
+    @Override
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
@@ -291,6 +293,7 @@ public class SysMenu extends BaseEntity {
      *
      * @return create_by 创建数据用户
      */
+    @Override
     public String getCreateBy() {
         return createBy;
     }
@@ -300,6 +303,7 @@ public class SysMenu extends BaseEntity {
      *
      * @param createBy 创建数据用户
      */
+    @Override
     public void setCreateBy(String createBy) {
         this.createBy = createBy == null ? null : createBy.trim();
     }
@@ -309,6 +313,7 @@ public class SysMenu extends BaseEntity {
      *
      * @return update_by 更新数据用户
      */
+    @Override
     public String getUpdateBy() {
         return updateBy;
     }
@@ -318,6 +323,7 @@ public class SysMenu extends BaseEntity {
      *
      * @param updateBy 更新数据用户
      */
+    @Override
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy == null ? null : updateBy.trim();
     }
@@ -327,6 +333,7 @@ public class SysMenu extends BaseEntity {
      *
      * @return create_date 创建数据时间
      */
+    @Override
     public Date getCreateDate() {
         return createDate;
     }
@@ -336,6 +343,7 @@ public class SysMenu extends BaseEntity {
      *
      * @param createDate 创建数据时间
      */
+    @Override
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
@@ -345,6 +353,7 @@ public class SysMenu extends BaseEntity {
      *
      * @return update_date 更新数据时间
      */
+    @Override
     public Date getUpdateDate() {
         return updateDate;
     }
@@ -354,6 +363,7 @@ public class SysMenu extends BaseEntity {
      *
      * @param updateDate 更新数据时间
      */
+    @Override
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
@@ -363,6 +373,7 @@ public class SysMenu extends BaseEntity {
      *
      * @return del_flag 删除标记：0正常 1不正常
      */
+    @Override
     public Integer getDelFlag() {
         return delFlag;
     }
@@ -372,6 +383,7 @@ public class SysMenu extends BaseEntity {
      *
      * @param delFlag 删除标记：0正常 1不正常
      */
+    @Override
     public void setDelFlag(Integer delFlag) {
         this.delFlag = delFlag;
     }
@@ -381,6 +393,7 @@ public class SysMenu extends BaseEntity {
      *
      * @return version 数据版本
      */
+    @Override
     public Integer getVersion() {
         return version;
     }
@@ -390,6 +403,7 @@ public class SysMenu extends BaseEntity {
      *
      * @param version 数据版本
      */
+    @Override
     public void setVersion(Integer version) {
         this.version = version;
     }

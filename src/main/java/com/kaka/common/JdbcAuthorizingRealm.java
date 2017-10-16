@@ -39,8 +39,9 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
         String username = token.getUsername();
         if (StringUtils.isNotEmpty(username)) {
             SysUser user = sysUserMapper.findByUserName(username);
-            if (user == null)
+            if (user == null) {
                 throw new UnknownAccountException("用户不存在");
+            }
             if (Constance.INT_NO == user.getState()) {
                 throw new LockedAccountException("用户账号被禁用，请联系管理员！");
             }

@@ -4,34 +4,55 @@ import com.kaka.users.model.SysMenu;
 
 import java.util.List;
 
+/**
+ * @author wuwanggao@163.com
+ */
 public interface SysMenuMapper {
     /**
-     * @mbggenerated 2017-09-28
+     * 根据主键删除数据
+     *
+     * @param id
+     * @return
      */
     int deleteByPrimaryKey(Long id);
 
     /**
-     * @mbggenerated 2017-09-28
+     * 插入数据
+     *
+     * @param record
+     * @return
      */
     int insert(SysMenu record);
 
     /**
-     * @mbggenerated 2017-09-28
+     * 根据不为空的字段，插入数据
+     *
+     * @param record
+     * @return
      */
     int insertSelective(SysMenu record);
 
     /**
-     * @mbggenerated 2017-09-28
+     * 根据主键查找实体
+     *
+     * @param id
+     * @return
      */
     SysMenu selectByPrimaryKey(Long id);
 
     /**
-     * @mbggenerated 2017-09-28
+     * 根据不为空的字段更新数据
+     *
+     * @param record
+     * @return
      */
     int updateByPrimaryKeySelective(SysMenu record);
 
     /**
-     * @mbggenerated 2017-09-28
+     * 根据主键更新数据
+     *
+     * @param record
+     * @return
      */
     int updateByPrimaryKey(SysMenu record);
 

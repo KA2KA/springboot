@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Created by QIEGAO on 2017/8/10.
+ * @author wuwanggao@163.com
  */
 @Configuration
 public class ShiroConfiguration {
@@ -53,12 +53,12 @@ public class ShiroConfiguration {
     @Bean
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(JdbcAuthorizingRealm());
+        securityManager.setRealm(jdbcAuthorizingRealm());
         return securityManager;
     }
 
     @Bean
-    public Realm JdbcAuthorizingRealm() {
+    public Realm jdbcAuthorizingRealm() {
         return new JdbcAuthorizingRealm();
     }
 }

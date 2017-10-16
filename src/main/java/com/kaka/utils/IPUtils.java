@@ -30,7 +30,7 @@ public class IPUtils {
         }
         if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
             ipAddress = request.getRemoteAddr();
-            if (ipAddress.equals("127.0.0.1") || ipAddress.equals("0:0:0:0:0:0:0:1")) {
+            if ("127.0.0.1".equals(ipAddress) || "0:0:0:0:0:0:0:1".equals(ipAddress)) {
                 //根据网卡取本机配置的IP
                 InetAddress inet = null;
                 try {
@@ -65,7 +65,7 @@ public class IPUtils {
             if (data != null) {
                 JSONObject obj2 = (JSONObject) data;
                 String code = obj.get("code").toString();
-                if (code.equals("0")) {
+                if ("0".equals(code)) {
 
                     resout = obj2.get("country") + "--" + obj2.get("area") + "--" + obj2.get("city") + "--" + obj2.get("isp");
                 } else {

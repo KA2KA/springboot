@@ -29,8 +29,9 @@ public class SysUserAuthServiceImpl implements SysUserAuthService {
 
     @Override
     public Set<SysRole> findRolesByUser(SysUser user) {
-        if (user == null)
+        if (user == null) {
             return null;
+        }
         return sysRoleMapper.findRolesByUserId(user.getId());
     }
 

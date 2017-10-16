@@ -35,12 +35,13 @@ private List list;
 
     public void setPageNumber(int pageNumber) {
           int totalpage=(int)Math.ceil(totalCount/pageSize);
-    if (totalpage <pageNumber)
-        this.pageNumber =totalpage;
-    else if(pageNumber<=0)
-        this.pageNumber=1;
-    else
-        this.pageNumber =pageNumber;
+    if (totalpage <pageNumber) {
+        this.pageNumber = totalpage;
+    } else if(pageNumber<=0) {
+        this.pageNumber = 1;
+    } else {
+        this.pageNumber = pageNumber;
+    }
     }
 
     public long getTotalCount() {
