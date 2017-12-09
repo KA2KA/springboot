@@ -42,5 +42,5 @@ public interface SysRoleMapper {
      * @param userId
      * @return
      */
-    Set<SysRole> findRolesByUserId(Long userId);
+    List<SysRole> findRolesByUserId(Long userId);
 }

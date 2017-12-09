@@ -1,12 +1,15 @@
 package com.kaka.users.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 所有实体类的父类
- * Created by QIEGAO on 2017/7/22.
+ *
+ * @author QIEGAO
+ * @date 2017/7/22
  */
-public class BaseEntity {
+public class BaseEntity implements Serializable {
 
 
     /**

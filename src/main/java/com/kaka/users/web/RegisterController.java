@@ -36,4 +36,11 @@ public class RegisterController {
     }
 
 
+//
+//    @RequestMapping(value = "/signup_check/username",method = RequestMethod.POST)
+//    public Result signupCheck(String username){
+//
+//    }
+
+
 }

@@ -42,7 +42,7 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
             if (user == null) {
                 throw new UnknownAccountException("用户不存在");
             }
-            if (Constance.INT_NO == user.getState()) {
+            if (Constance.STATUS_NO.equals(user.getState())) {
                 throw new LockedAccountException("用户账号被禁用，请联系管理员！");
             }
             return new SimpleAuthenticationInfo(user, user.getPassword(), this.getClass().getName());
@@ -59,7 +59,7 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = IPUtils.getIpAddr(request);
         user = this.saveUserLoginInfo(user, ip);
-
+        System.out.println("aop");
         Set<SysRole> roleSet = sysUserAuthService.findRolesByUser(user);
         List<String> permissions = sysUserAuthService.findPermissionsByUser(user);
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
@@ -82,7 +82,7 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
         user.setIp(ip);
         user.setLoginAddress(IPUtils.getAddressByIp(ip));
         user.setLoginDate(new Timestamp(System.currentTimeMillis()));
-        sysUserMapper.updateByPrimaryKey(user);
+        sysUserMapper.updateByPrimaryKeySelective(user);
         return user;
     }
 

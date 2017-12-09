@@ -49,8 +49,6 @@ public class LoginController {
         Assert.notNull(password, "password can not be empty");
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         SecurityUtils.getSubject().login(token);
-
-
         return Result.ok();
     }
 

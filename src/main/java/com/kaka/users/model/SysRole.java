@@ -1,11 +1,12 @@
 package com.kaka.users.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author wuwanggao@163.com
  */
-public class SysRole extends BaseEntity {
+public class SysRole extends BaseEntity implements Serializable {
     /**
      * 角色ID
      */
@@ -68,7 +69,6 @@ public class SysRole extends BaseEntity {
 
     /**
      * 角色ID
-     *
      * @return id 角色ID
      */
     public Long getId() {
@@ -77,7 +77,6 @@ public class SysRole extends BaseEntity {
 
     /**
      * 角色ID
-     *
      * @param id 角色ID
      */
     public void setId(Long id) {
@@ -86,7 +85,6 @@ public class SysRole extends BaseEntity {
 
     /**
      * 角色名
-     *
      * @return rolename 角色名
      */
     public String getRolename() {
@@ -95,7 +93,6 @@ public class SysRole extends BaseEntity {
 
     /**
      * 角色名
-     *
      * @param rolename 角色名
      */
     public void setRolename(String rolename) {
@@ -104,7 +101,6 @@ public class SysRole extends BaseEntity {
 
     /**
      * 描述
-     *
      * @return description 描述
      */
     public String getDescription() {
@@ -113,7 +109,6 @@ public class SysRole extends BaseEntity {
 
     /**
      * 描述
-     *
      * @param description 描述
      */
     public void setDescription(String description) {
@@ -122,7 +117,6 @@ public class SysRole extends BaseEntity {
 
     /**
      * 角色父id
-     *
      * @return parent_id 角色父id
      */
     public Integer getParentId() {
@@ -295,7 +289,6 @@ public class SysRole extends BaseEntity {
     public void setVersion(Integer version) {
         this.version = version;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -307,56 +300,56 @@ public class SysRole extends BaseEntity {
 
         SysRole sysRole = (SysRole) o;
 
-        if (!id.equals(sysRole.id)) {
+        if (id != null ? !id.equals(sysRole.id) : sysRole.id != null) {
             return false;
         }
-        if (!rolename.equals(sysRole.rolename)) {
+        if (rolename != null ? !rolename.equals(sysRole.rolename) : sysRole.rolename != null) {
             return false;
         }
-        if (!description.equals(sysRole.description)) {
+        if (description != null ? !description.equals(sysRole.description) : sysRole.description != null) {
             return false;
         }
-        if (!parentId.equals(sysRole.parentId)) {
+        if (parentId != null ? !parentId.equals(sysRole.parentId) : sysRole.parentId != null) {
             return false;
         }
-        if (!remark.equals(sysRole.remark)) {
+        if (remark != null ? !remark.equals(sysRole.remark) : sysRole.remark != null) {
             return false;
         }
-        if (!state.equals(sysRole.state)) {
+        if (state != null ? !state.equals(sysRole.state) : sysRole.state != null) {
             return false;
         }
-        if (!createBy.equals(sysRole.createBy)) {
+        if (createBy != null ? !createBy.equals(sysRole.createBy) : sysRole.createBy != null) {
             return false;
         }
-        if (!updateBy.equals(sysRole.updateBy)) {
+        if (updateBy != null ? !updateBy.equals(sysRole.updateBy) : sysRole.updateBy != null) {
             return false;
         }
-        if (!createDate.equals(sysRole.createDate)) {
+        if (createDate != null ? !createDate.equals(sysRole.createDate) : sysRole.createDate != null) {
             return false;
         }
-        if (!updateDate.equals(sysRole.updateDate)) {
+        if (updateDate != null ? !updateDate.equals(sysRole.updateDate) : sysRole.updateDate != null) {
             return false;
         }
-        if (!delFlag.equals(sysRole.delFlag)) {
+        if (delFlag != null ? !delFlag.equals(sysRole.delFlag) : sysRole.delFlag != null) {
             return false;
         }
-        return version.equals(sysRole.version);
+        return version != null ? version.equals(sysRole.version) : sysRole.version == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + rolename.hashCode();
-        result = 31 * result + description.hashCode();
-        result = 31 * result + parentId.hashCode();
-        result = 31 * result + remark.hashCode();
-        result = 31 * result + state.hashCode();
-        result = 31 * result + createBy.hashCode();
-        result = 31 * result + updateBy.hashCode();
-        result = 31 * result + createDate.hashCode();
-        result = 31 * result + updateDate.hashCode();
-        result = 31 * result + delFlag.hashCode();
-        result = 31 * result + version.hashCode();
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (rolename != null ? rolename.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (parentId != null ? parentId.hashCode() : 0);
+        result = 31 * result + (remark != null ? remark.hashCode() : 0);
+        result = 31 * result + (state != null ? state.hashCode() : 0);
+        result = 31 * result + (createBy != null ? createBy.hashCode() : 0);
+        result = 31 * result + (updateBy != null ? updateBy.hashCode() : 0);
+        result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
+        result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
+        result = 31 * result + (delFlag != null ? delFlag.hashCode() : 0);
+        result = 31 * result + (version != null ? version.hashCode() : 0);
         return result;
     }
 }

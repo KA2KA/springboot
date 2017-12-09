@@ -1,8 +1,12 @@
 package com.kaka.users.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SysMenu extends BaseEntity {
+/**
+ * @author Hem
+ */
+public class SysMenu extends BaseEntity  implements Serializable {
     /**
      * 菜单ID
      */

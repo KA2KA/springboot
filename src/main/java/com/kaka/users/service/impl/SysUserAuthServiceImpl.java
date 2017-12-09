@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author wuwanggao@pinming.cn
@@ -32,7 +33,8 @@ public class SysUserAuthServiceImpl implements SysUserAuthService {
         if (user == null) {
             return null;
         }
-        return sysRoleMapper.findRolesByUserId(user.getId());
+        List<SysRole> sysRoleList = sysRoleMapper.findRolesByUserId(user.getId());
+        return sysRoleList.stream().collect(Collectors.toSet());
     }
 
     @Override
