@@ -1,0 +1,15 @@
+@startuml
+FileSystemXmlApplicationContext -> AbstractApplicationContext:  refresh()
+AbstractApplicationContext -> AbstractRefreshableApplicationContext: refreshBeanFactory()
+AbstractRefreshableApplicationContext-> AbstractXmlApplicationContext:loadBeanDefinitions(XmlBeanDefinitionReader reader)
+AbstractXmlApplicationContext-> AbstractBeanDefinitionReader:loadBeanDefinitions(Resource... resources)
+AbstractBeanDefinitionReader -> XmlBeanDefinitionReader:loadBeanDefinitions(EncodedResource encodedResource)
+XmlBeanDefinitionReader --> XmlBeanDefinitionReader:doLoadBeanDefinitions(InputSource inputSource, Resource resource)
+XmlBeanDefinitionReader --> XmlBeanDefinitionReader:registerBeanDefinitions(Document doc, Resource resource)
+XmlBeanDefinitionReader -> DefaultBeanDefinitionDocumentReader:registerBeanDefinitions(Document doc, XmlReaderContext readerContext)
+DefaultBeanDefinitionDocumentReader --> DefaultBeanDefinitionDocumentReader:parseBeanDefinitions(Element root, BeanDefinitionParserDelegate delegate)
+DefaultBeanDefinitionDocumentReader --> DefaultBeanDefinitionDocumentReader:processBeanDefinition(Element ele, BeanDefinitionParserDelegate delegate)
+DefaultBeanDefinitionDocumentReader -> BeanDefinitionParserDelegate:parseBeanDefinitionElement(Element ele)
+DefaultBeanDefinitionDocumentReader -> BeanDefinitionReaderUtils:registerBeanDefinition(BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)
+BeanDefinitionReaderUtils -> DefaultListableBeanFactory:registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
+@enduml

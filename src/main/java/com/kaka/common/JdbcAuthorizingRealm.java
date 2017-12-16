@@ -52,7 +52,6 @@ public class JdbcAuthorizingRealm extends AuthorizingRealm {
 
 
     //授权.菜单
-
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
         SysUser user = (SysUser) principal.getPrimaryPrincipal();

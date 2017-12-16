@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author Hem
+ * @author wuwanggao@163.com
  */
-public class SysMenu extends BaseEntity  implements Serializable {
+public class SysMenu extends BaseEntity implements Serializable {
     /**
      * 菜单ID
      */

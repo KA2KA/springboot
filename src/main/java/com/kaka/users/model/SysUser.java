@@ -4,9 +4,6 @@ package com.kaka.users.model;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author QIEGAO
- */
 public class SysUser extends BaseEntity implements Serializable {
     /**
      * 用户ID
