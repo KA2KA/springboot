@@ -19,8 +19,7 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
-
     aop:
-      proxy-target-class: true
+        proxy-target-class: true
 server:
   port: 8085
