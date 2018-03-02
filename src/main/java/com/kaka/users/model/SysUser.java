@@ -1,111 +1,135 @@
 package com.kaka.users.model;
 
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author QIEGAO
  */
+@Entity
+@Table(name = "sys_user")
 public class SysUser extends BaseEntity implements Serializable {
     /**
      * 用户ID
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     /**
      * 用户名
      */
+    @Column
     private String username;
 
     /**
      * 用户类型
      */
+    @Column
     private Byte usertype;
 
     /**
      * 用户密码
      */
+    @Column
     private String password;
 
     /**
      * 昵称
      */
+    @Column
     private String nickname;
 
     /**
      * 性别
      */
+    @Column
     private Boolean sex;
 
     /**
      * 手机号
      */
+    @Column
     private Integer phone;
 
     /**
      * 邮箱
      */
+    @Column
     private String email;
 
     /**
      * 用户头像
      */
+    @Column
     private String alias;
 
     /**
      * 最近登陆地址
      */
+    @Column
     private String loginAddress;
 
     /**
      * 最近登陆时间
      */
+    @Column
     private Date loginDate;
 
     /**
      * 登陆IP
      */
+    @Column
     private String ip;
 
     /**
      * 用户状态
      */
+    @Column
     private Integer state;
 
     /**
      * 备注
      */
+    @Column
     private String remark;
 
     /**
      * 创建数据用户
      */
+    @Column
     private String createBy;
 
     /**
      * 更新数据用户
      */
+    @Column
     private String updateBy;
 
     /**
      * 创建数据时间
      */
+    @Column
     private Date createDate;
 
     /**
      * 更新数据时间
      */
+    @Column
     private Date updateDate;
 
     /**
      * 删除标记：0正常 1不正常
      */
+    @Column
     private Integer delFlag;
 
     /**
      * 数据版本
      */
+    @Version
     private Integer version;
 
     /**

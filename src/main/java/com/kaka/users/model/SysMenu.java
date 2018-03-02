@@ -6,6 +6,7 @@ import java.util.Date;
 /**
  * @author Hem
  */
+
 public class SysMenu extends BaseEntity  implements Serializable {
     /**
      * 菜单ID
